@@ -5,7 +5,7 @@ wEBSITE : https://www.youtube.com/watch?v=e-OZeAHFpkw
 import imaplib, email, os
 
 user = 'sharukkhan.m@vikatan.com'
-password = 'Vikatan@123'
+password = ''
 imap_url = 'imap.gmail.com'
 #Where you want your attachments to be saved (ensure this directory exists) 
 attachment_dir = 'your_attachment_dir'
