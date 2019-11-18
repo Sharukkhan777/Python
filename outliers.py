@@ -19,3 +19,4 @@ from scipy import stats
 df1=stats.zscore(df1)
 
 
+# thank you
