@@ -1,0 +1,83 @@
+# json to csv for only one column
+import pandas as pd
+
+# This function change json formated column into table format
+def json_to_csv_column(specific_column , dataframe_name):
+        # Argument
+        #`````````
+        # first argument : specific_column
+            # syntax : dataframe_name['column_name']
+        # second argument : dataframe_name
+            # syntax : dataframe_name
+    n = dataframe_name.shape[0]
+    # replace null to None
+    for i in range(n):
+        x = specific_column[i]
+        x = str(x)
+        x = x.replace('null','None')
+        specific_column[i] = x
+        
+    # take the string between { } 
+    for i in range(n):
+        try:
+            x = specific_column[i]
+            from_ = x.index('{')
+            to_ = x.index('}') + 1
+            specific_column[i] = x[from_:to_]
+        except:
+            continue
+        
+    # take the first row as example
+    first = specific_column[1]
+    first = eval(first)
+    # taking the keys as columns names
+    keys = list(first.keys())
+
+    for i in keys:
+        exec(i+'=[]')
+        for j in range(n):
+            try:
+                xx = specific_column[j]
+                xx = eval(xx)
+                element = xx.get(i)
+                exec(i+'.append(element)')
+            except:
+                exec(i+'.append(None)')
+        dataframe_name[i] = eval(i)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
