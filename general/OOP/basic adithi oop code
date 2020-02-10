@@ -1,0 +1,17 @@
+# basic concept of oop
+class Person():
+   def __init__(self,name):
+       self.name = name
+   def walk(self):
+       print('walking')
+   class Dog():
+       def __init__(self,name):
+           self.name = name
+       
+# attribute
+Adthi = Person('adithi')
+# function
+Adthi.walk()
+# class
+dog_name = Adthi.Dog('jimmy')
+dog_name.name
