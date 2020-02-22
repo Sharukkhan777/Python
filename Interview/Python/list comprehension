@@ -1,0 +1,38 @@
+# list comprehension
+
+# SECTIONS
+# 1.for loop 
+# 2.while loop
+# 3.if else
+# 4.for, if , else if , else
+
+#==============================================================================
+# 1.for loop
+my_list = [i for i in range(10)]
+# similar to 
+my_list = []
+for i in range(10):
+    my_list.append(i)
+
+#==============================================================================
+# 2.while loop
+# no while loop for list comprehension
+#==============================================================================
+# 3.if else
+a = 1
+print("a is 1") if a == 1 else print('not 1')
+# its not list comprehension
+#==============================================================================
+# 4.for, if , else if , else
+l = [1, 2, 3, 4, 5]
+['yes' if v == 1 else 'no' if v == 2 else 'idle' for v in l]
+# OUTPUT    ['yes', 'no', 'idle', 'idle', 'idle']
+for v in l:
+    if v == 1 :
+        print 'yes'
+    else:
+        if v == 2:
+            print 'no'
+        else:
+            print 'idle'
+#==============================================================================
