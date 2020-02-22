@@ -1,0 +1,355 @@
+# REGEX WHOLE CODE
+# website:https://www.youtube.com/watch?v=K8L6KVGG-7o
+
+# ---------------------SECTIONS---------------------------
+# 1.Differences between print statement
+# 2.Simple match and search expression
+# 3.Corey Schafer basic code to regex
+# 4.if else condition things to remember logic
+# 5.Back to corey scharef ('.' how to use dot character)
+# 6.How to compile with special characters
+# 7. Boundaries
+# 8.Beginning and End of a String
+# 9.Take the Phone number
+# 10.Take the set[]
+# 11.Quantifiers
+# 12.Complex match with Group and Either or
+# 13. Simple exercise Find email
+# 14. How to append those matches in a list
+# 15.Substitution using groups
+# 16.findall (return list of which we specify as group in compile)
+# 17.match
+# 18.search
+# 19.re Flags (re.IGNORECASE)
+# ---------------------------------------------------------
+
+
+#==============================================================================
+# 1.Differences between print statement 
+#``````````````````````````````````````
+print('aaa') # print aaa
+print('\taaa') # print       aaa ( with escape characters \t)
+print(r'\taaa') # print \taaa (r before quote means raw print)
+#==============================================================================
+# 2.Simple match and search expression
+#``````````````````````````````````````
+
+# Naresh technology
+
+# test whether given string is in the beginning of the string 
+# website:https://www.youtube.com/watch?v=Q_xYRXA8McA
+
+# match expression 
+import re
+my_str = 'Python and Java gives Jython'
+
+found = re.match(r'[aPw]',my_str)
+if found:
+    print('match found')
+else:
+    print('match not found')
+
+# search expression 
+import re
+my_str = 'Python and Java gives Jython'
+
+found = re.search(r'[aw]',my_str)
+if found:
+    print('search found')
+else:
+    print('search not found')
+#==============================================================================
+# 3.Corey Schafer basic code to regex
+#``````````````````````````````````````
+# https://www.youtube.com/watch?v=K8L6KVGG-7o
+text_to_search = '''
+abcdefghijklmnopqurtuvwxyz
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+1234567890
+Ha HaHa
+MetaCharacters (Need to be escaped):
+. ^ $ * + ? { } [ ] \ | ( )
+coreyms.com
+321-555-4321
+123.555.1234
+123*555*1234
+800-555-1234
+900-555-1234
+Mr. Schafer
+Mr Smith
+Ms Davis
+Mrs. Robinson
+Mr. T
+'''
+# now we start the functions finditer method to see easily which 
+# all string contains the stated pattern
+
+# compile(collecting) information of how the pattern looks like 
+pattern = re.compile(r'abc')
+
+# this finditer produce the iter object of patterns in literal
+matches = pattern.finditer(text_to_search)
+
+# iterate the patterns
+for match in matches:
+    print(match)
+
+# return true or false
+print('match found') if matches else print('match not found')
+#==============================================================================
+# 4.if else condition things to remember logic
+#`````````````````````````````````````````````
+# you might have bit confusion how if matches works
+# here is the example to demonstrate 
+a = 1
+print('a has some value') if a else print('a has None value')
+
+a = None
+print('a has some value') if a else print('a has None value')
+#==============================================================================
+# 5.Back to corey scharef ('.' how to use dot character)
+text_to_search = '''
+abcdefghijklmnopqurtuvwxyz
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+1234567890
+Ha HaHa
+MetaCharacters (Need to be escaped):
+. ^ $ * + ? { } [ ] \ | ( )
+coreyms.com
+321-555-4321
+123.555.1234
+123*555*1234
+800-555-1234
+900-555-1234
+Mr. Schafer
+Mr Smith
+Ms Davis
+Mrs. Robinson
+Mr. T
+'''
+# '.' dot return all matches except new line for each character in a string 
+pattern = re.compile(r'.')
+matches = pattern.finditer(text_to_search)
+for match in matches:
+    print(match)
+# to get actual dot we have to put the escape character \.
+pattern = re.compile(r'\.')
+matches = pattern.finditer(text_to_search)
+for match in matches:
+    print(match)
+# sentence with '.'dot character
+pattern = re.compile(r'coreyms\.com')
+matches = pattern.finditer(text_to_search)
+for match in matches:
+    print(match)
+#==============================================================================
+# 6.How to compile with special characters
+#    .       - Any Character Except New Line
+#    \d      - Digit (0-9)
+#    \D      - Not a Digit (0-9)
+#    \w      - Word Character (a-z, A-Z, 0-9, _)
+#    \W      - Not a Word Character
+#    \s      - Whitespace (space, tab, newline)
+#    \S      - Not Whitespace (space, tab, newline)
+# 7. Boundaries
+#    \b      - Word Boundary
+#    \B      - Not a Word Boundary
+# 8.Beginning and End of a String
+#    ^       - Beginning of a String
+#    $       - End of a String
+# 10.Take the set[]
+#    []      - Matches Characters in brackets
+#    [^ ]    - Matches Characters NOT in brackets
+#    |       - Either Or
+#    ( )     - Group
+# 11.Quantifiers
+#    Quantifiers:
+#    *       - 0 or More
+#    +       - 1 or More
+#    ?       - 0 or One
+#    {3}     - Exact Number
+#    {3,4}   - Range of Numbers (Minimum, Maximum)
+    
+# now we can see one by one 
+#    .       - Any Character Except New Line
+pattern = re.compile(r'.')
+matches = pattern.finditer(text_to_search)
+for match in matches:
+    print(match)
+#    \d      - Digit (0-9)
+pattern = re.compile(r'\d')
+matches = pattern.finditer(text_to_search)
+for match in matches:
+    print(match)
+#    \D      - Not a Digit (0-9)
+pattern = re.compile(r'\D')
+matches = pattern.finditer(text_to_search)
+for match in matches:
+    print(match)
+# and so on.............................
+# word boundary
+# what is word boundary ?
+#       It means white spaces and non alpha numeric character(have to search what it means)
+
+# Ha with word boundary \b
+pattern = re.compile(r'\bHa')
+matches = pattern.finditer(text_to_search)
+for match in matches:
+    print(match)
+#==============================================================================
+# 8.Beginning and End of a String
+sentence = 'abcdefghijkl'
+
+#    ^       - Beginning of a String
+pattern = re.compile(r'^a')
+matches = pattern.finditer(sentence)
+for match in matches:
+    print(match)
+    
+#    $       - End of a String
+pattern = re.compile(r'l$')
+matches = pattern.finditer(sentence)
+for match in matches:
+    print(match)
+#==============================================================================
+# 9.Take the Phone number
+pattern = re.compile(r'\d\d\d.\d\d\d.\d\d\d\d') # the '.' dot represents any character
+matches = pattern.finditer(text_to_search)
+for match in matches:
+    print(match)
+# we can put '-' to take phone number which having '-'
+pattern = re.compile(r'\d\d\d.\d\d\d.\d\d\d\d') # the '.' dot represents any character
+matches = pattern.finditer(text_to_search)
+for match in matches:
+    print(match)
+# if we want '-' or '.'
+pattern = re.compile(r'\d\d\d[-.]\d\d\d[-.]\d\d\d\d') # the '.' dot represents any character
+matches = pattern.finditer(text_to_search)
+for match in matches:
+    print(match)
+# take the 800 900 starting phone numbers
+pattern = re.compile(r'[89]00[-.]\d\d\d[-.]\d\d\d\d') # the '.' dot represents any character
+matches = pattern.finditer(text_to_search)
+for match in matches:
+    print(match)   
+#==============================================================================
+# 10.Take the set[]
+#    []      - Matches Characters in brackets
+pattern = re.compile(r'[a-zA-Z]')
+matches = pattern.finditer(text_to_search)
+for match in matches:
+    print(match)
+#    [^ ]    - Matches Characters NOT in brackets
+ pattern = re.compile(r'[^a-zA-Z]')
+matches = pattern.finditer(text_to_search)
+for match in matches:
+    print(match)   
+#==============================================================================
+# 11.Quantifiers (state immediate after the character)
+pattern = re.compile(r'\d{3}.\d{3}.\d{4}') # {3} means 3 digits of numbers
+matches = pattern.finditer(text_to_search)
+for match in matches:
+    print(match)
+
+pattern = re.compile(r'Mr\.?') # ? here means '.' can be zero or one
+matches = pattern.finditer(text_to_search)
+for match in matches:
+    print(match)
+#==============================================================================
+# 12.Complex match with Group and Either or
+    
+# we have to print names whose name starts from Mr.
+pattern = re.compile(r'M(r|s|rs)?\.?\s[A-Z]\w*')
+matches = pattern.finditer(text_to_search)
+for match in matches:
+    print(match)
+
+# just for reference 
+sentence = "abcdefghijkl d c"
+pattern = re.compile(r'\w*') # separate by white spaces
+matches = pattern.finditer(sentence)
+for match in matches:
+    print(match)
+
+#==============================================================================
+# 13. Simple exercise Find email
+emails = '''
+CoreyMSchafer@gmail.com
+corey.schafer@university.edu
+corey-321-schafer@my-work.net
+'''
+pattern = re.compile(r'[a-zA-z.0-9-]+@[a-zA-z-]+\.[a-zA-Z]+')
+matches = pattern.finditer(emails)
+for match in matches:
+    print(match)
+#==============================================================================
+# 14. How to append those matches in a list
+urls = '''
+https://www.google.com
+http://coreyms.com
+https://youtube.com
+https://www.nasa.gov
+'''
+pattern = re.compile(r'https?://(www\.)?(\w+)\.(\w+)')
+matches = pattern.finditer(urls)
+
+my_list = []
+for match in matches:
+    x = match.group(0)
+    my_list.append(x)
+#==============================================================================
+# 15.Substitution using groups
+urls = '''
+https://www.google.com
+http://coreyms.com
+https://youtube.com
+https://www.nasa.gov
+'''
+pattern = re.compile(r'https?://(www\.)?(\w+)\.(\w+)')
+subs_urls = pattern.sub(r'\2\3',urls)
+# the above line takes the string according to compile rule 
+# then substitute the group 2 and group 3 
+print(subs_urls)
+#==============================================================================
+# 16.findall (return list of which we specify as group in compile)
+
+urls = '''
+https://www.google.com
+http://coreyms.com
+https://youtube.com
+https://www.nasa.gov
+'''
+pattern = re.compile(r'https?://(www\.)?(\w+)\.(\w+)')
+matches = pattern.findall(urls)
+#==============================================================================
+# 17.match
+
+sentence = 'Start a sentence and then bring it to an end'
+pattern = re.compile(r'Start')
+matches = pattern.match(sentence)
+print(matches)
+# if statement to state match has found or not
+print('match found') if matches else print('match not found')
+
+#============================================================================== 
+# 18.search
+
+sentence = 'Start a sentence and then bring it to an end'
+pattern = re.compile(r'Start')
+matches = pattern.search(sentence)
+print(matches)
+# if statement to state match has found or not
+print('match found') if matches else print('match not found')
+
+#==============================================================================
+# 19.re Flags (re.IGNORECASE)
+
+sentence = 'Start a sentence and then bring it to an end'
+pattern = re.compile(r'start', re.IGNORECASE) # or we can use re.I simply
+matches = pattern.search(sentence)
+print(matches)
+
+#==============================================================================
+
+
+
