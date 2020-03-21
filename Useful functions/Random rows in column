@@ -1,0 +1,13 @@
+# take the random values from the specific column
+#-----------------------------------------------------------------------------
+# first argument = df_name = eg:data_water
+# second argument = df_column_name = eg:'volume_of_water'
+# third argument = number_of_rows = eg:10
+#-----------------------------------------------------------------------------
+def take_random_values(df_name,df_column_name,number_of_rows):
+    import random
+    list_ = []
+    rand_numbers = random.sample(range(1, df_name.shape[0]), number_of_rows)
+    for i in rand_numbers:
+        list_.append(df_name.loc[i,str(df_column_name)])
+    return list_
