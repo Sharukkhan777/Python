@@ -13,10 +13,10 @@ num = int(input("Enter your number of rows = "))
 # generate the data
 r = None
 while r != R:
-    x = random.sample(range(1, 100), num)
-    y = random.sample(range(1, 100), num)
+    x = random.sample(range(1, num*10), num)
+    y = random.sample(range(1, num*10), num)
     r = np.corrcoef(x, y)
-    r = r[0,1]
+    r = round(r[0,1],1)
 
 # Just see How the data looks like
 plt.scatter(x,y)
