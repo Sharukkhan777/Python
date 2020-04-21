@@ -1,0 +1,6 @@
+# def a function which take a sample without nan
+def Take_sample_in_column_without_nan(dataframe_name,dataframe_column,no_of_samples):    
+    x = dataframe_name[dataframe_name[dataframe_column] != np.nan]
+    x = x[dataframe_column].dropna()
+    x = x.sample(n = no_of_samples)
+    return x
