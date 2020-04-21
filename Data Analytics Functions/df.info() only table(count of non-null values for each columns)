@@ -1,0 +1,11 @@
+def Info_count_taken(dataframe_name):
+    data_cols = list(dataframe_name.columns)
+    # making the list
+    data_cols_list = []
+    data_count_list = []
+    for i in data_cols:
+        data_cols_list.append(i)
+        data_count_list.append(dataframe_name[i].count())
+    df = pd.DataFrame({'Data_columns':data_cols_list,
+                      'Non-null values count':data_count_list})
+    return df
