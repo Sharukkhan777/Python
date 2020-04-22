@@ -1,4 +1,15 @@
-# function that search the names in columns
+#---------------------------------------------
+# Title
+# function that search the text in column names
+#---------------------------------------------
+#Parameters:
+#1) dataframe_name = Name of the dataframe
+#2) text = input the text in string format(eg:'title') that you want to search
+#---------------------------------------------
+#Return 
+#It return the list of matched column names
+#---------------------------------------------
+#Program
 def find_in_column_names(dataframe_name,text):
     column_names = dataframe_name.columns
     matched_column_names = []
@@ -10,3 +21,4 @@ def find_in_column_names(dataframe_name,text):
         else:
             continue
     return matched_column_names
+#---------------------------------------------
