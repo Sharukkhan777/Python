@@ -1,0 +1,12 @@
+# function that search the names in columns
+def find_in_column_names(dataframe_name,text):
+    column_names = dataframe_name.columns
+    matched_column_names = []
+    for i in column_names:
+        i_lower = i.lower()
+        text_lower = text.lower()
+        if text_lower in i_lower:
+            matched_column_names.append(i)
+        else:
+            continue
+    return matched_column_names
