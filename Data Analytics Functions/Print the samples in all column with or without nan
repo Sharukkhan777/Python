@@ -1,4 +1,17 @@
+#---------------------------------------------
+# Title
 # function print the sample of each columns
+#---------------------------------------------
+#Parameters:
+#1) dataframe_name = Name of the dataframe
+#2) number_of_sample = input an integer of number of samples that you want 
+#3) with_nan_1_or_0 = 1 represents without nan values
+                      0 represents with nan values
+#---------------------------------------------
+#Return 
+#It prints the sample values for each column
+#---------------------------------------------
+#Program
 def sample_of_each_columns(dataframe_name,number_of_sample,with_nan_1_or_0):
     column_names = list(dataframe_name.columns)
     # with dropna()
@@ -11,3 +24,4 @@ def sample_of_each_columns(dataframe_name,number_of_sample,with_nan_1_or_0):
             x = dataframe_name[i].sample(number_of_sample)
             print(x)
     
+#---------------------------------------------
