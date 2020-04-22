@@ -1,0 +1,13 @@
+# function print the sample of each columns
+def sample_of_each_columns(dataframe_name,number_of_sample,with_nan_1_or_0):
+    column_names = list(dataframe_name.columns)
+    # with dropna()
+    if with_nan_1_or_0 == 1:
+        for i in column_names:
+            x = dataframe_name[i].dropna().sample(number_of_sample)
+            print(x)
+    else:
+        for i in column_names:
+            x = dataframe_name[i].sample(number_of_sample)
+            print(x)
+    
