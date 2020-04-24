@@ -1,0 +1,37 @@
+#---------------------------------------------
+# Title
+# Take the required columns when you handle memory error for csv file
+#---------------------------------------------
+#Parameters:
+#1) location = location of the file 
+                (Warning: use '/' (eg:H:/sharuk/file.csv))
+#2) use_columns = list the columns names in a list format
+                (eg:['id','name','age'])
+#---------------------------------------------
+#Return 
+#It returns the whole data
+#---------------------------------------------
+#Program
+def Data_read_memory_error(location,use_columns):
+    import pandas as pd
+    import warnings
+    warnings.filterwarnings("ignore")
+    data_first = pd.read_csv(location,nrows = 1)
+    # Create a loop
+    i = 0
+    data_0 = pd.read_csv(location,usecols = use_columns,nrows = 0)
+    while True:
+        try:
+            data_1 = pd.read_csv(location ,nrows = 100000,skiprows=i)
+            data_1.columns = data_first.columns
+            # take the required columns
+            data_1 = data_1.loc[:,use_columns]
+            data_0 = pd.concat([data_0,data_1])
+            i = i + 100000
+            print(i)
+        except:
+            break
+    return data_0
+ #---------------------------------------------
+ #eg:
+ # data = Data_read_memory_error('H:/sharuk/file.csv',['id','name','age'])
