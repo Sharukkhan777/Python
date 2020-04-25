@@ -1,0 +1,23 @@
+#---------------------------------------------
+# Title
+# Duplicates values in a list for one column
+#---------------------------------------------
+#Parameters:
+#1) dataframe_name = Data Frame Name 
+#2) column_name = Column name in string (eg:'column_name')
+#---------------------------------------------
+#Return 
+#It returns the Duplicates values in a list for one column
+#---------------------------------------------
+#Program
+# function that take s the duplicates values in a column
+def take_the_duplicate_value_in_a_list(dataframe_name, column_name):
+    # create a pivot table
+    data_pivot = dataframe_name[column_name].value_counts().to_frame()
+    # take the values which has 2 count
+    data_pivot_count_2 = data_pivot[data_pivot[column_name] >= 2]
+    list_of_duplicates = list(data_pivot_count_2.index)
+    return list_of_duplicates
+ #---------------------------------------------
+ #eg:
+ # list_of_duplicates = take_the_duplicate_value_in_a_list(df,'id')
