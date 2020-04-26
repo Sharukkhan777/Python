@@ -10,28 +10,23 @@
 #It returns the whole data
 #---------------------------------------------
 #Program
-def Data_read_memory_error_whole_file(location):
+def Data_read_memory_error(location):
     import pandas as pd
     import warnings
     warnings.filterwarnings("ignore")
     data_first = pd.read_csv(location,nrows = 1)
     # Create a loop
     i = 0
-    dataframe_i = 1
     data_0 = pd.read_csv(location,nrows = 0)
-    dataframe_list = []
     while True:
         try:
-            exec("data_"+str(dataframe_i)+" = pd.read_csv(location ,nrows = 100000,skiprows=i)")
-            exec("data_"+str(dataframe_i)+".columns = data_first.columns")
+            data_1 = pd.read_csv(location ,nrows = 100000,skiprows=i)
+            data_1.columns = data_first.columns
+            data_0 = data_0.append(data_1)
             i = i + 100000
-            eval("dataframe_list.append(data_"+str(dataframe_i)+")")
-            dataframe_i = dataframe_i + 1
             print(i)
         except:
             break
-    data_concat = pd.concat(dataframe_list)
-    # delete all dataframe
-    return data_concat
+    return data_0
 #---------------------------------------------
 df = Data_read_memory_error_whole_file(location)
