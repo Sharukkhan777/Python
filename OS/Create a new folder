@@ -4,7 +4,7 @@
 #---------------------------------------------
 #Parameters:
 #1) location = input location that we want to create a new folder
-                (Warning: use '/' (eg:"H:/sharuk/file/"))
+                (eg:r"H:/sharuk/file/"))
 #2) folder_name = input the folder_name that we want
 #---------------------------------------------
 #Return 
@@ -12,9 +12,10 @@
 #---------------------------------------------
 #Program
 def Create_a_new_folder(location, folder_name):
+    location = location.replace('\\','/')
     import os 
     path = os.path.join(location, folder_name)  
-    os.mkdir(path)       
+    os.mkdir(path)   
 #---------------------------------------------
 # Example
-# Create_a_new_folder(':E/path/title/','Character')
+# Create_a_new_folder(r':E/path/title/','Character')
