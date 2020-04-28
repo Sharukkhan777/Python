@@ -11,7 +11,10 @@
 #It returns the whole data
 #---------------------------------------------
 #Program
-
 def Create_a_new_folder(location, folder_name):
-      
-  
+    import os 
+    path = os.path.join(location, folder_name)  
+    os.mkdir(path)       
+#---------------------------------------------
+# Example
+# Create_a_new_folder(':E/path/title/','Character')
