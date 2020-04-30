@@ -1,0 +1,110 @@
+#---------------------------------------------
+# Title
+# Gives the data for the given correlation coefficient 'r' with the input of sample number that we want, 
+# range of values of observations, float or int and so on 
+#---------------------------------------------
+#Return 
+#It returns the whole data for the given inputs
+#---------------------------------------------
+#Program
+# input that awe have to enter
+r = float(input("Enter your correlation co-effcient \nwith one decimal point \n(eg:0.7)= "))
+n = int(input("Number of samples\n sample should >2 = "))
+range_from  = int(input("Observation Value\nRange From = "))
+range_to  = int(input("Observation Value\nRange To = "))
+float_or_int = int(input("Float or Int Values you want\nIf float press 1\nIf int press 0\n ="))
+if float_or_int == 0:
+    import random
+    from scipy.stats.stats import pearsonr
+    import numpy as np
+    corr_coeff = np.nan
+    while corr_coeff != r:
+        randomlist1 = []
+        for i in range(0,3):
+            n_ = random.randint(range_from,range_to)
+            randomlist1.append(n_)
+        randomlist2 = []
+        for i in range(0,3):
+            n_ = random.randint(range_from,range_to)
+            randomlist2.append(n_)
+        corr_coeff,p_val = pearsonr(randomlist1,randomlist2)
+        corr_coeff = round(corr_coeff,1)
+        if corr_coeff == r:
+            break
+    # adding the pair of values
+    while True:
+        while True:
+            #list 1
+            n_ = random.randint(range_from,range_to)
+            randomlist1.append(n_)
+            #list 2
+            n_ = random.randint(range_from,range_to)
+            randomlist2.append(n_)
+            corr_coeff,p_val = pearsonr(randomlist1,randomlist2)
+            corr_coeff = round(corr_coeff,1)
+            if corr_coeff == r:
+                break
+            else:
+                randomlist1 = randomlist1[:-1]
+                randomlist2 = randomlist2[:-1]
+        if n == len(randomlist1):
+            break
+    
+    # store in database
+    data = pd.DataFrame({'Col1':randomlist1,
+                         'Col2':randomlist2})
+    # to show in graph
+    import matplotlib.pyplot as plt
+    plt.scatter(randomlist1,randomlist2)
+else:
+    import random
+    from scipy.stats.stats import pearsonr
+    import numpy as np
+    corr_coeff = np.nan
+    while corr_coeff != r:
+        randomlist1 = []
+        for i in range(0,3):
+            n_ = random.uniform(range_from,range_to)
+            randomlist1.append(n_)
+        randomlist2 = []
+        for i in range(0,3):
+            n_ = random.uniform(range_from,range_to)
+            randomlist2.append(n_)
+        corr_coeff,p_val = pearsonr(randomlist1,randomlist2)
+        corr_coeff = round(corr_coeff,1)
+        if corr_coeff == r:
+            break
+    # adding the pair of values
+    while True:
+        while True:
+            #list 1
+            n_ = random.uniform(range_from,range_to)
+            randomlist1.append(n_)
+            #list 2
+            n_ = random.uniform(range_from,range_to)
+            randomlist2.append(n_)
+            corr_coeff,p_val = pearsonr(randomlist1,randomlist2)
+            corr_coeff = round(corr_coeff,1)
+            if corr_coeff == r:
+                break
+            else:
+                randomlist1 = randomlist1[:-1]
+                randomlist2 = randomlist2[:-1]
+        if n == len(randomlist1):
+            break
+    
+    # store in database
+    data = pd.DataFrame({'Col1':randomlist1,
+                         'Col2':randomlist2})
+    # to show in graph
+    import matplotlib.pyplot as plt
+    plt.scatter(randomlist1,randomlist2)
+    
+
+
+
+
+
+
+
+
