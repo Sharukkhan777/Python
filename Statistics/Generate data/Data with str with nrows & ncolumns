@@ -1,0 +1,20 @@
+#---------------------------------------------
+# Title
+# Generate the data with same value of given number of rows and columns
+#---------------------------------------------
+#Return 
+# Data with given number of rows and columns with values
+#---------------------------------------------
+#Program
+word = 'abcdefghijklmnop'
+number_of_rows = 10000000
+number_of_columns = 100
+
+import pandas as pd
+# create first column
+list_word = ['abcdefghijklmnop']
+column_0_values = list_word*number_of_rows
+df = pd.DataFrame({'col0':column_0_values})
+for i in range(1,number_of_columns):
+    exec("df['col"+str(i)+"'] = df['col0']")
+#---------------------------------------------
