@@ -6,9 +6,9 @@
 # Data with given number of rows and columns with values
 #---------------------------------------------
 #Program
-word = 'abcdefghijklmnop'
-number_of_rows = 10000000
-number_of_columns = 100
+word = str(input("Enter your string = "))
+number_of_rows = int(input("Enter your number of rows = "))
+number_of_columns =  int(input("Enter your number of columns = "))
 
 import pandas as pd
 # create first column
