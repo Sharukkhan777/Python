@@ -1,0 +1,16 @@
+import random
+from scipy.stats.stats import pearsonr
+from scipy.stats import kurtosis 
+from scipy.stats import skew
+from math import sqrt
+
+r = float(input("r = "))
+n = int(input("n = "))
+p_e = (0.6745)*((1-(r**2))/(sqrt(n)))
+print("Probable Error",p_e)
+if r<p_e:
+    print("correlation is not at all significant")
+elif r>(6*p_e):
+    print("Correlation is definitely significant")
+else:
+    print("bla")
