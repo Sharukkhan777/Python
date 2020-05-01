@@ -1,0 +1,23 @@
+#---------------------------------------------
+# Title
+# Generate the data with same value of given number of rows and columns
+#---------------------------------------------
+#Return 
+# Data with given number of rows and columns with values
+#---------------------------------------------
+#Program
+word = float(input("Enter your string = "))
+number_of_rows = int(input("Enter your number of rows = "))
+number_of_columns =  int(input("Enter your number of columns = "))
+
+import pandas as pd
+# create first column
+list_number = [number]
+column_0_values = list_word*number_of_rows
+df = pd.DataFrame({'col0':column_0_values})
+for i in range(1,number_of_columns):
+    exec("df['col"+str(i)+"'] = df['col0']")
+#---------------------------------------------
+
+
+
