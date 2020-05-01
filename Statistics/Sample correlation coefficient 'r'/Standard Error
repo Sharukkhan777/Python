@@ -1,0 +1,6 @@
+from math import sqrt
+
+r = float(input("r = "))
+n = int(input("n = "))
+St = (1-(r**2))/(sqrt(n))
+print("Standard Error for Sample correlation coefficient is ",St)
