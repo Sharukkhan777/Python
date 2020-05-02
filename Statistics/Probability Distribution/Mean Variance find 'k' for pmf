@@ -1,0 +1,66 @@
+# calculate pmf
+# make the input
+from sympy import solve
+from sympy import Symbol
+from sympy import integrate
+from fractions import Fraction
+# total number of inputs
+n = int(input("Enter the number of observation = "))
+
+# make X input
+x = []
+for i in range(n):
+    x.append(float(input("Enter value "+str(i+1)+" = ")))
+
+y_or_n = str(input("Do you have to find 'k'\nIf Yes press 'y' or press 'n' = "))
+if y_or_n == 'y':
+    # make P(x) input
+    p_x = []
+    k = Symbol('k')
+    for i in range(n):
+        p_x.append((input("Enter p_x value "+str(i+1)+" = ")))
+        
+    #solve for k
+    # create equation
+    st = "("
+    for i in range(n):
+        st = st + p_x[i]+ ")+("
+    st = st + "-1)"
+    exec("value = solve("+st+",k)")
+    
+    # taking the value
+    if type(value) == list:
+        # take the value which has positive value
+        if value[0] / abs(value[0]) == 1:
+            k = value[0]
+        else:
+            k = value[1]
+    else:
+        k = value
+    print("▪️-"*20)
+    print("✅ k value 👉 ",k)
+    # substitute the k in the P_x
+    p_x_solved = []
+    for i in range(n):
+        exec("val = " + p_x[i])
+        p_x_solved.append(val)
+else:
+    p_x_solved = []
+    for i in range(n):
+        p_x_solved.append((float(input("Enter p_x value "+str(i+1)+" = "))))
+    
+# find the mean and variance
+
+# find the mean
+sum_mean = 0
+for i in range(n):
+    sum_mean = sum_mean + (x[i]*p_x_solved[i])
+print("▪️-"*20)
+print("✅ E(X) ⇔ Mean 👉",sum_mean)
+# find the var
+sum_var = 0
+for i in range(n):
+    sum_var = sum_var + ((x[i]**2)*p_x_solved[i])
+variance = sum_var-(sum_mean**2)
+print("✅ E(X-μ)² ⇔ Variance 👉",sum_mean)
+print("▪️-"*20)
