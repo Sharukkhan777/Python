@@ -19,21 +19,19 @@ def mean_variance_pdf(f_x,lower_limit,upper_limit):
     # for mean
     f_x_mean = x * (f_x)
     mean_of_pdf = float(integrate(f_x_mean, (x, lower_limit, upper_limit)))
-    print("="*50)
-    print("✅ Mean_of_pdf is ",mean_of_pdf)
-    print("✅ Fraction Version of mean is \n",Fraction(mean_of_pdf))
-    print("="*50)
+    print("▪️-"*20)
+    print("✅ Mean_of_pdf 👉",mean_of_pdf)
+    print("✅ Fraction Version of mean is 👉\n",Fraction(mean_of_pdf))
+    print("▪️-"*20)
     # for variance
     f_x_variance = (x**2) * (f_x)
     var_of_pdf = integrate(f_x_variance, (x, lower_limit, upper_limit))
     # calculate variance
     variance_of_pdf = float(var_of_pdf - (mean_of_pdf**2))
-    print("✅ Variance_of_pdf is ",variance_of_pdf)
-    print("✅ Fraction Version of variance is \n",Fraction(variance_of_pdf))
-    print("="*50)
+    print("✅ Variance_of_pdf 👉",variance_of_pdf)
+    print("✅ Fraction Version of variance is 👉\n",Fraction(variance_of_pdf))
+    print("▪️-"*20)
     return mean_of_pdf,variance_of_pdf
-
-
 
 mean,var = mean_variance_pdf((1/60)*(x**3),2,4)
 #---------------------------------------------
