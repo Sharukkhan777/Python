@@ -1,0 +1,32 @@
+#---------------------------------------------
+# Title
+# Print the mean and variance of the Given pdf and return mean,variance
+#---------------------------------------------
+#Parameters:
+#1) f_x = Input the function in Terms of 'x'
+#2) lower_limit = lower_limit of the function
+#3) upper_limit = upper_limit of the function
+#---------------------------------------------
+#Return 
+#It prints the mean and variance and return the values in the format of mean, varaince
+#---------------------------------------------
+#Program
+def mean_variance_pdf(f_x,lower_limit,upper_limit):
+    from sympy import Symbol
+    from sympy import integrate
+    x = Symbol('x')
+    # for mean
+    f_x_mean = x * (f_x)
+    mean_of_pdf = integrate(f_x_mean, (x, lower_limit, upper_limit))
+    print("mean_of_pdf is ",mean_of_pdf)
+    # for variance
+    f_x_variance = (x**2) * (f_x)
+    var_of_pdf = integrate(f_x_variance, (x, lower_limit, upper_limit))
+    # calculate variance
+    variance_of_pdf = var_of_pdf - (mean_of_pdf**2)
+    print("variance_of_pdf is ",variance_of_pdf)
+    return mean_of_pdf,variance_of_pdf
+#---------------------------------------------
+# Example
+mean,var = mean_variance_pdf((1/60)*(x**3),2,4)
+Example taken from the video https://www.youtube.com/watch?v=Ro7dayHU5DQ
