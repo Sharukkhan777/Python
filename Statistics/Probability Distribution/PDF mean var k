@@ -1,0 +1,54 @@
+from sympy import Symbol
+from sympy import integrate
+from fractions import Fraction
+from sympy import solve
+x = Symbol('x')
+k = Symbol('k')
+#>>>>>>>>>>>>>>>INPUT>>>>>>>>>>>>>>>>>>>>
+f_x = k*(x**2)*(1-(x**3))
+lower_limit = 0
+upper_limit = 1
+#>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+y_or_n = str(input("Do you have to find 'k'\nIf Yes press 'y' or press 'n' = "))
+if y_or_n =='y':
+    # find the k value
+    exec("kk = solve(integrate(f_x,(x, lower_limit, upper_limit))-1,k)")
+    del k
+    k = float(kk[0])
+    print("▪️-"*20)
+    print("✅ Value of k 👉",k)
+    f_x = str(f_x)
+    f_x = f_x.replace("k",str(k))
+    # for mean
+    exec("f_x_mean = x * ("+str(f_x)+")")
+    mean_of_pdf = float(integrate(f_x_mean, (x, lower_limit, upper_limit)))
+    print("▪️-"*20)
+    print("✅ Mean_of_pdf 👉",mean_of_pdf)
+    print("▪️-"*20)
+    # for variance
+    exec("f_x_variance = (x**2) * ("+str(f_x)+")")
+    var_of_pdf = integrate(f_x_variance, (x, lower_limit, upper_limit))
+    # calculate variance
+    variance_of_pdf = float(var_of_pdf - (mean_of_pdf**2))
+    print("✅ Variance_of_pdf 👉",variance_of_pdf)
+    print("▪️-"*20)
+else:
+    from sympy import Symbol
+    from sympy import integrate
+    from fractions import Fraction
+    x = Symbol('x')
+    # for mean
+    f_x_mean = x * (f_x)
+    mean_of_pdf = float(integrate(f_x_mean, (x, lower_limit, upper_limit)))
+    print("▪️-"*20)
+    print("✅ Mean_of_pdf 👉",mean_of_pdf)
+    print("✅ Fraction Version of mean is 👉\n",Fraction(mean_of_pdf))
+    print("▪️-"*20)
+    # for variance
+    f_x_variance = (x**2) * (f_x)
+    var_of_pdf = integrate(f_x_variance, (x, lower_limit, upper_limit))
+    # calculate variance
+    variance_of_pdf = float(var_of_pdf - (mean_of_pdf**2))
+    print("✅ Variance_of_pdf 👉",variance_of_pdf)
+    print("✅ Fraction Version of variance is 👉\n",Fraction(variance_of_pdf))
+    print("▪️-"*20)
