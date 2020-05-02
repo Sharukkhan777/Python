@@ -14,18 +14,28 @@
 def mean_variance_pdf(f_x,lower_limit,upper_limit):
     from sympy import Symbol
     from sympy import integrate
+    from fractions import Fraction
     x = Symbol('x')
     # for mean
     f_x_mean = x * (f_x)
-    mean_of_pdf = integrate(f_x_mean, (x, lower_limit, upper_limit))
-    print("mean_of_pdf is ",mean_of_pdf)
+    mean_of_pdf = float(integrate(f_x_mean, (x, lower_limit, upper_limit)))
+    print("="*50)
+    print("✅ Mean_of_pdf is ",mean_of_pdf)
+    print("✅ Fraction Version of mean is \n",Fraction(mean_of_pdf))
+    print("="*50)
     # for variance
     f_x_variance = (x**2) * (f_x)
     var_of_pdf = integrate(f_x_variance, (x, lower_limit, upper_limit))
     # calculate variance
-    variance_of_pdf = var_of_pdf - (mean_of_pdf**2)
-    print("variance_of_pdf is ",variance_of_pdf)
+    variance_of_pdf = float(var_of_pdf - (mean_of_pdf**2))
+    print("✅ Variance_of_pdf is ",variance_of_pdf)
+    print("✅ Fraction Version of variance is \n",Fraction(variance_of_pdf))
+    print("="*50)
     return mean_of_pdf,variance_of_pdf
+
+
+
+mean,var = mean_variance_pdf((1/60)*(x**3),2,4)
 #---------------------------------------------
 # Example
 mean,var = mean_variance_pdf((1/60)*(x**3),2,4)
