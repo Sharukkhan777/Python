@@ -1,0 +1,22 @@
+# inputs
+n = int(input("Enter your number of observation = "))
+x = []
+for i in range(n):
+    val = float(input("Enter value "+str(i+1)+" = "))
+    x.append(val)
+    
+x = pd.DataFrame(x)
+x.describe()
+import stat as st
+print("▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️")
+print("-----Five Number Summary----")
+print("Minimum = ",np.min(x)[0])
+print("Q1      = ",np.percentile(x,25))
+print("Median  = ",np.median(x))
+print("Q3      = ",np.percentile(x,75))
+print("Maximum = ",np.max(x)[0])
+print("▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️")
+print("In a list")
+print("[Minimum, Q1, Median, Q3, Maximum]")
+print([np.min(x)[0],np.percentile(x,25),np.median(x),np.percentile(x,75),np.max(x)[0]])
+print("▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️")
