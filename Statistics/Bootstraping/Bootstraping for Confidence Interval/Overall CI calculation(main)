@@ -1,0 +1,70 @@
+# inputs 
+resample_number = int(input("Enter resample number\nRecommeded 10000 = "))
+confidence_level = float(input("Enter Confidence Level\nRecommended(eg:0.90, 0.95, 0.99,... ) = "))
+
+# import libraries
+import numpy as np
+import pandas as pd
+import random
+from random import choices
+import matplotlib.pyplot as plt
+from scipy.stats import kurtosis
+from scipy.stats import skew
+
+# read the dataset as list
+data = pd.read_csv(r'data.csv')
+data = data['col_name']
+data = pd.Series(data)
+
+#000000000000000000000000000000000000000000000000000000000000000000000000000000
+# DEFINE THE FUNCTION 
+# EX: mean, variance, or any statistic
+# hypothesis value 
+# EX: t-value, z-value
+# regression co-eff
+#--------------------------------
+def func(x):
+    mu = np.mean(x)
+    return mu
+## If we want two or more parameter at the same time
+#def sharpe_ratio(x):
+#    mu, sigma = 12 * np.mean(x), np.sqrt(12 * np.var(x))
+#    return np.array([mu, sigma])
+#000000000000000000000000000000000000000000000000000000000000000000000000000000
+# Resampling method to see the histogram distributed
+#---------------------------------------------------
+data_list = list(data)
+parameter_cal = []
+for i in range(resample_number):
+    x = choices(data_list,k=len(data_list))
+    x = func(x)
+    parameter_cal.append(x)
+# plot the histogram
+plt.title('Bootstrapping Distribution')
+plt.hist(parameter_cal,bins = 100)
+plt.grid(True)
+plt.show()
+# skew
+skew_of_data = 'Skewness = '+str(round(skew(parameter_cal),2))
+print(skew_of_data)
+#000000000000000000000000000000000000000000000000000000000000000000000000000000
+# CALCULATE CONFIDENCE INTERVAL USING BOOTSTRAPPING METHOD
+#---------------------------------------------------------
+from arch.bootstrap import IIDBootstrap
+bs = IIDBootstrap(data)
+
+ci1 = bs.conf_int(func, resample_number, method='basic',size = confidence_level)
+ci2 = bs.conf_int(func, resample_number, method='percentile',size = confidence_level)
+ci3 = bs.conf_int(func, resample_number, method='norm',size = confidence_level)
+# studentized take more loading time
+#ci4 = bs.conf_int(func, resample_number, method='studentized',size = confidence_level)
+ci5 = bs.conf_int(func, resample_number, method='bc',size = confidence_level)
+ci6 = bs.conf_int(func, resample_number, method='bca',size = confidence_level)
+#000000000000000000000000000000000000000000000000000000000000000000000000000000
+# create a data frame
+confidence_interval_table = pd.DataFrame({'Method':['Basic','Percentile','norm','Bias-Corrected','Bias-Corrected Accelerated'],
+           'Lower_CI':[ci1[0][0],ci2[0][0],ci3[0][0],ci5[0][0],ci6[0][0]],
+           'Upper_CI':[ci1[1][0],ci2[1][0],ci3[1][0],ci5[1][0],ci6[1][0]]})
+print(confidence_interval_table)
+#000000000000000000000000000000000000000000000000000000000000000000000000000000
+
