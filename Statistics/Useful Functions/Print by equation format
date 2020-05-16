@@ -1,0 +1,10 @@
+from time import sleep
+from sympy import *
+x = symbols('x')
+init_printing()
+
+# run this first
+Integral(sqrt(1/(x**2+x**4+2),x))￼￼
+￼
+# then run this
+sqrt(1/(x**2+x**4+2),x)
