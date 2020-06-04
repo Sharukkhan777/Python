@@ -1,0 +1,28 @@
+from kivy.app import App
+from kivy.uix.textinput import TextInput
+from kivy.uix.button import Button
+from kivy.uix.gridlayout import GridLayout
+import numpy as np
+
+
+class MainApp(App):
+    def build(self):
+        layout = GridLayout(cols =1,row_force_default = True,row_default_height=48)
+        self.weight = TextInput(text = '1')
+        self.height = TextInput(text='2')
+        submit = Button(text = "Submit", on_press = self.submit)
+        self.answer = TextInput(text='')
+        layout.add_widget(self.weight)
+        layout.add_widget(self.height)
+        layout.add_widget(self.answer)
+        layout.add_widget(submit)
+        return layout
+
+    def submit(self,obj):
+        height_val = self.height.text
+        weight_val = self.weight.text
+        answer_val = float(height_val)+float(weight_val)
+        print("Answer = ",answer_val)
+        self.answer.text = str(np.sqrt(answer_val))
+
+MainApp().run()
