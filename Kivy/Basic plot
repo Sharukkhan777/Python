@@ -1,0 +1,58 @@
+import os
+os.environ['KIVY_GL_BACKEND'] = 'angle_sdl2'
+
+from kivy.garden.matplotlib.backend_kivyagg import FigureCanvas
+from kivy.app import App
+from kivy.uix.boxlayout import BoxLayout
+import matplotlib.pyplot as plt
+from kivy.app import App
+from kivy.uix.textinput import TextInput
+from kivy.uix.button import Button
+from kivy.uix.gridlayout import GridLayout
+import numpy as np
+import pandas as pd
+
+#----------------------------------------------------------------------------------------------
+# -------------box plot-------------------
+#------------------------------------------
+# create a dataframe
+# df = pd.DataFrame({'Gender':['Male','Male','Male','Male','Female','Female','Female','Female'],
+#                    'value':[1,2,3,5,2,4,6,3]})
+# df.boxplot(column='value', by='Gender')
+#----------------------------------------------------------------------------------------------
+# -------------line plot-------------------
+#------------------------------------------
+# plt.plot([1, 23, 2, 4,3,2])
+# plt.ylabel('some numbers')
+#----------------------------------------------------------------------------------------------
+# -------------hist plot-------------------
+#------------------------------------------
+# list_of_values = [1,1,2,3,3,5,7,8,9,10,10,11,11,13,13,15,16,17,18,18,
+# 18,19,20,21,21,23,24,24,25,25,25,25,26,26,26,27,27,27,27,27,
+# 29,30,30,31,33,34,34,34,35,36,36,37,37,38,38,39,40,41,41,42,
+# 43,44,45,45,46,47,48,48,49,50,51,52,53,54,55,55,56,57,58,60,
+# 61,63,64,65,66,68,70,71,72,74,75,77,81,83,84,87,89,90,90,91]
+# plt.hist(list_of_values, bins = 100)
+#----------------------------------------------------------------------------------------------
+# -------------scatter plot-------------------
+#------------------------------------------
+x = [1,2,3]
+y = [1,2,3]
+plt.scatter(x,y)
+#----------------------------------------------------------------------------------------------
+
+class MyApp(App):
+
+    def build(self):
+        box = BoxLayout()
+        box.add_widget(FigureCanvas(plt.gcf()))
+        return box
+
+MyApp().run()
+
+
+
+
+
+
+
