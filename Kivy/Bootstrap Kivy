@@ -1,0 +1,128 @@
+import os
+os.environ['KIVY_GL_BACKEND'] = 'angle_sdl2'
+
+import random
+
+import matplotlib.pyplot as plt
+
+from kivy.config import Config
+Config.set('graphics', 'resizable', False)
+from kivy.garden.matplotlib.backend_kivyagg import FigureCanvasKivyAgg
+from kivy.core.window import Window
+from kivy.app import App
+from kivy.uix.widget import Widget
+from kivy.uix.textinput import TextInput
+from kivy.uix.button import Button
+from kivy.uix.gridlayout import GridLayout
+
+
+Window.clearcolor = (0,0.5,0.9,0.1)
+Window.size = (800, 400)
+
+
+#Bootstrap Method:
+
+
+class BootstrapMethod(object):
+    def __init__(self):
+        self.start_button = BootstrapButton(text = "Bootstrap")
+        self.layout = BootstrapGrid()
+        self.options = BootstrapOptions()
+
+
+class RunButtonLayout(GridLayout):
+    def __init__(self):
+        super().__init__(rows=3, cols=1)
+        self.add_widget(PlotNormed(text="Normed histogram"))
+        self.add_widget(PlotActual(text="Actual histogram"))
+        self.add_widget(BootstrapButton(text="Run bootstrap"))
+
+
+class PlotNormed(Button):
+    def on_release(self):
+        xbars = self.parent.parent.parent.xbars
+        if xbars != None:
+            self.parent.parent.parent.ax.cla()
+            self.parent.parent.parent.ax.hist(xbars, normed = True)
+            self.parent.parent.parent.fig.figure.canvas.draw()
+
+
+class PlotActual(Button):
+    def on_release(self):
+        xbars = self.parent.parent.parent.xbars
+        if xbars != None:
+            self.parent.parent.parent.ax.cla()
+            self.parent.parent.parent.ax.hist(xbars)
+            self.parent.parent.parent.fig.figure.canvas.draw()
+
+
+class BootstrapButton(Button):
+    def on_release(self):
+        super().on_release()
+        sample_string = self.parent.parent.sample_input.text.split(',')
+        self.samples = [float(i) for i in sample_string]
+        self.bootstrap_algorithm()
+
+    def bootstrap_algorithm(self):
+        xbars = []
+        n = int(self.parent.parent.bootstrap_sample.text)
+        if n > len(self.samples):
+            n = len(self.samples)
+        nb = int(self.parent.parent.bootstrap_iteration.text)
+        for i in range(nb):
+            xbar = sum([random.sample(self.samples, 1)[0] for j in range(n)])/n
+            xbars.append(xbar)
+        self.parent.parent.parent.xbars = xbars
+        self.parent.parent.parent.ax.cla()
+        self.parent.parent.parent.ax.hist(xbars)
+        self.parent.parent.parent.fig.figure.canvas.draw()
+
+
+class BootstrapOptions(GridLayout):
+    def __init__(self):
+        super().__init__(rows=2, cols=2)
+        self.sample_input = TextInput(text = "Sample input")
+        self.bootstrap_iteration = TextInput(text = "Number of bootstrap iterations")
+        self.bootstrap_sample = TextInput(text = "Number of sample for resampling")
+        self.run_layout = RunButtonLayout()
+
+        self.add_widget(self.sample_input)
+        self.add_widget(self.bootstrap_iteration)
+        self.add_widget(self.bootstrap_sample)
+        self.add_widget(self.run_layout)
+
+
+class BootstrapGrid(GridLayout):
+    def __init__(self):
+        super().__init__(rows=1, cols=2, padding = 5, spacing = 5)
+        fig, ax = plt.subplots()
+        self.options = BootstrapOptions()
+        self.add_widget(self.options)
+        self.fig = FigureCanvasKivyAgg(fig)
+        self.ax = ax
+        self.add_widget(self.fig)
+        self.xbars = None
+
+
+
+######################################################
+
+
+class Front(Widget):
+    def __init__(self):
+        super().__init__()
+        self.start()
+
+    def start(self):
+        self.bs = BootstrapMethod()
+        self.add_widget(self.bs.layout)
+        self.bs.layout.size = (800, 400)
+
+
+class mobilesuitApp(App):
+    def build(self):
+        root = Front()
+        return root
+
+app = mobilesuitApp()
+app.run()
