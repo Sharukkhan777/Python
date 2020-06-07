@@ -1,0 +1,7 @@
+# How to create a simple class
+class Point:
+    pass
+
+# instantiate(Create an object) the class
+point1 = Point()
+point2 = Point()
