@@ -1,0 +1,13 @@
+# How to create a simple class
+class Point:
+    pass
+
+# instantiate(Create an object) the class
+point1 = Point()
+
+# create an own attribute
+point1.x = 1
+point1.y = 2
+
+# print the created attribute
+print(point1.x,point1.y)
