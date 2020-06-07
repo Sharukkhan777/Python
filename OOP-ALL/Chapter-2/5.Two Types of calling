@@ -1,0 +1,31 @@
+# create a method
+class Point:
+    def reset(self):
+        self.x = 0
+        self.y = 0
+
+# instantiate
+point1 = Point()
+# create an own attribute
+point1.x = 1
+point1.y = 2
+# print the created attribute
+print("We assign point as ",point1.x,point1.y)
+#--------------------------------------------
+# calling the function we created
+point1.reset()
+print("After calling the reset function ",point1.x,point1.y)
+
+
+#ooooooooooooooooooooooooooooooooooooooo
+
+# Two types of calling 
+##--------------------------------------------
+#Type 1
+point1.reset()
+#Type 2
+Point.reset(point1)
+#--------------------------------------------
+
+#ooooooooooooooooooooooooooooooooooooooo
+
