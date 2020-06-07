@@ -1,0 +1,28 @@
+# -------------------------------------------
+# Here we can see the two functions reset and move
+
+# we create the reset function first and call the move function after 
+# we might think it will show error 
+# but it wont show any error
+
+# -------------------------------------------
+
+# How to create a simple class
+class Point:
+    def reset(self):
+        self.move(0,0)
+    def move(self,x,y):
+        self.x = x
+        self.y = y
+
+
+# instantiate(Create an object) the class
+point1 = Point()
+
+# assign the points using the move methods
+Point.move(point1,3,4) 
+
+# reset the point
+Point.reset(point1)
+
+print(point1.x,point1.y)
