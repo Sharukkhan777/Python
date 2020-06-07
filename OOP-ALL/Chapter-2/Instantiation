@@ -4,4 +4,3 @@ class Point:
 
 # instantiate(Create an object) the class
 point1 = Point()
-point2 = Point()
