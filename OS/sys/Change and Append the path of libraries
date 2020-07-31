@@ -1,0 +1,9 @@
+
+# import libraries
+import sys
+
+# list all path
+sys.path
+
+# if we want to add path 
+sys.path.append("C:\ProgramsFiles\Python37\Lib\site-packages")
