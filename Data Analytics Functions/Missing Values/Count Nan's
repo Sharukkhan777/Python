@@ -1,0 +1,13 @@
+# Count all NaN in a DataFrame (both columns & Rows)
+dfObj.isnull().sum().sum()
+
+# Count total NaN at each column in DataFrame
+dfObj.isnull().sum()
+
+# Count total NaN at each row in DataFrame
+for i in range(len(dfObj.index)) :
+    print("Nan in row ", i , " : " ,  dfObj.iloc[i].isnull().sum())
+
+
+
+
