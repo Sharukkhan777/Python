@@ -1,0 +1,44 @@
+#---------------------------------------------
+# Title
+# Fill the missing values with weights in a column
+#---------------------------------------------
+#Parameters:
+#1) dataframe_name = Data Frame Name 
+#2) column_name = Column name in string (eg:'column_name')
+#3) no_of_data = number of data that we want to generate
+#---------------------------------------------
+#Return 
+# list of values generated
+#---------------------------------------------
+#Program
+
+def Data_generate_with_weights_in_list(dataframe_name,column_name,no_of_data):
+	
+	import random
+	# take the series of data
+	series_of_values = dataframe_name[column_name].value_counts()
+	# take the unique values
+	list_of_index = list(series_of_values.index)
+	# frequency of values
+	list_of_values = list(series_of_values)
+	
+	# data generate code
+	data_generated = random.choices(list_of_index,
+					weights = list_of_values,
+					k = no_of_data)
+	# return
+	return data_generated
+ #---------------------------------------------
+ #eg:
+ # missing_values = Data_generate_with_weights_in_list(df,'Age',500)
+
+
+
+
+
+
+
+
+
+
+
