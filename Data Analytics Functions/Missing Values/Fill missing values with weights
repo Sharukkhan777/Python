@@ -1,6 +1,6 @@
 #---------------------------------------------
 # Title
-# Fill the missing values with weights in a column
+# Fill the missing values with same weights of the existing data in a column
 #---------------------------------------------
 #Parameters:
 #1) dataframe_name = Data Frame Name 
