@@ -1,0 +1,19 @@
+Follow the video
+
+https://www.youtube.com/watch?v=1VHtP5FV0kM
+
+
+##########################################
+
+Some steps to be carried out is
+
+1) Run the file fb-transcoder-notebook.ipynb
+(Then place your python file to be convert in the folder)
+
+2) Delete the file code in 
+    /content/TransCoder/preprocessing/src/code_tokenizer.py
+    
+    and paste the file given by bhavesh bhatt
+    
+3) Then run the code again
+##########################################
