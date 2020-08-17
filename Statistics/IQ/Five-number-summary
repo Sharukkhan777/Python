@@ -16,3 +16,8 @@ print([np.min(x)[0],np.percentile(x,25),np.median(x),np.percentile(x,75),np.max(
 print("▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️")
 print("For more information \n-------------------------\n",x.describe())
 
+# plot if we want 
+import plotly.graph_objects as go
+fig = go.Figure()
+fig.add_trace(go.Box(y=x))
+fig.show()
