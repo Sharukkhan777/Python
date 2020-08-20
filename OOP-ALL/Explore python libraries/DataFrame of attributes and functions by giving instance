@@ -5,9 +5,9 @@
 #Parameters:
 #1) instance = instance of the class 
 
-eg: 
-p = Point() # here point is a class
-list_attributes_and_functions_in_class(p)
+#eg: 
+#p = Point() # here point is a class
+#list_attributes_and_functions_in_class(p)
 
 #---------------------------------------------
 #Return 
