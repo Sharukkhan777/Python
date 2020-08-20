@@ -1,0 +1,55 @@
+#---------------------------------------------
+# Title
+# To see functions and attributes inside 
+#---------------------------------------------
+#Parameters:
+#1) instance = instance of the class 
+
+eg: 
+p = Point() # here point is a class
+list_attributes_and_functions_in_class(p)
+
+#---------------------------------------------
+#Return 
+# tuple of info_str, df
+#---------------------------------------------
+#Program
+
+# to see functions and attributes inside 
+
+def list_attributes_and_functions_in_class(instance):
+    list_of_dir = dir(instance)
+    # new list of dir without '__' start
+    new_list = []
+    for i in list_of_dir:
+        if i[:2] == "__":
+            continue
+        else:
+            new_list.append(i)
+    # separation of attributes and functions
+    list_of_attributes_functions = []
+    for i in new_list:
+        if str(i) in dir(__builtin__):
+            list_of_attributes_functions.append("Python's inbuilt")
+        else:
+            try:
+                exec("val_true_or_false = callable("+str(i)+")")
+                list_of_attributes_functions.append("Function")
+            except:
+                list_of_attributes_functions.append("Attribute")
+    # change to dataframe
+    import pandas as pd
+    df = pd.DataFrame({'Name':new_list,
+                       'What it is':list_of_attributes_functions})
+    # about info
+    sum = 0
+    for i in new_list:
+        if str(i) in dir(__builtin__):
+            sum = sum + 1
+        else:
+            continue
+    if sum > 0:
+        info_str = "Bad signal has "+str(sum)+" Attribute or Function name contains Python's inbuilt names"
+    else:
+        info_str = "Good signal Your Attribute or Function name not contains Python's inbuilt names"
+    return info_str,df
