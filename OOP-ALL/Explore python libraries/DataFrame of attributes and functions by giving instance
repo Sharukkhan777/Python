@@ -1,9 +1,9 @@
 #---------------------------------------------
 # Title
-# To see functions and attributes inside 
+# To see functions, method, attributes etc.,,,,,,,,,,,,,,,,
 #---------------------------------------------
 #Parameters:
-#1) instance = instance of the class 
+#1) instance = instance of the class or anything
 
 #eg: 
 #p = Point() # here point is a class
@@ -17,7 +17,29 @@
 
 # to see functions and attributes inside 
 
+#---------------------------------------------
+# Title
+# To see functions and attributes inside 
+#---------------------------------------------
+#Parameters:
+#1) instance = instance of the class 
+
+# eg: 
+# p = Point() # here point is a class
+# list_attributes_and_functions_in_class(p)
+
+#---------------------------------------------
+#Return 
+# tuple of info_str, df
+#---------------------------------------------
+#Program
+
+# to see functions and attributes inside 
+
 def list_attributes_and_functions_in_class(instance):
+    import inspect
+    import pandas as pd
+
     list_of_dir = dir(instance)
     # new list of dir without '__' start
     new_list = []
@@ -26,17 +48,33 @@ def list_attributes_and_functions_in_class(instance):
             continue
         else:
             new_list.append(i)
+    # create instance string
+    instance_str = str(instance)
     # separation of attributes and functions
     list_of_attributes_functions = []
     for i in new_list:
-        if str(i) in dir(__builtin__):
+        ####
+        val_builtin = eval("inspect.isbuiltin(instance."+str(i)+")")
+        val_class = eval("inspect.isclass(instance."+i+")")
+        val_method = eval("inspect.ismethod(instance."+i+")")
+        val_function = eval("inspect.isfunction(instance."+i+")")
+        val_module = eval("inspect.ismodule(instance."+i+")")
+        val_abstract = eval("inspect.isabstract(instance."+i+")")
+        if val_builtin:
             list_of_attributes_functions.append("Python's inbuilt")
+        elif val_class:
+            list_of_attributes_functions.append("Class")
+        elif val_method:
+            list_of_attributes_functions.append("Method")
+        elif val_function:
+            list_of_attributes_functions.append("Functions")
+        elif val_module:
+            list_of_attributes_functions.append("Module")
+        elif val_abstract:
+            list_of_attributes_functions.append("Abstract Base Class")
         else:
-            try:
-                exec("val_true_or_false = callable("+str(i)+")")
-                list_of_attributes_functions.append("Function")
-            except:
-                list_of_attributes_functions.append("Attribute")
+            list_of_attributes_functions.append("Attribute or Something else")
+        
     # change to dataframe
     import pandas as pd
     df = pd.DataFrame({'Name':new_list,
@@ -53,3 +91,4 @@ def list_attributes_and_functions_in_class(instance):
     else:
         info_str = "Good signal Your Attribute or Function name not contains Python's inbuilt names"
     return info_str,df
+
