@@ -5,7 +5,7 @@
 ## NOTE
 #If the module is not found
 #Download from the link below
-#https://github.com/Ishanvaid9/pyttsx-files
+#https://github.com/Ishanvaid9/pyttsx-files or use --- pip install pyttsx3 ---
 #
 #Save as the Above file as pyttsx
 #So that it wont show the module not found error
@@ -14,8 +14,8 @@
 #Lib\site-packages\
 # -------------------
 
-import pyttsx
-engine = pyttsx.init()
+import pyttsx   # import pyttsx3
+engine = pyttsx.init()    # engine = pyttsx3.init()
 voices = engine.getProperty('voices')
 engine.setProperty('voice', voices[1].id)
 # print(voices[1].id)
