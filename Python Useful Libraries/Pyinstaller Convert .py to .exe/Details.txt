@@ -1,0 +1,42 @@
+https://www.geeksforgeeks.org/convert-python-script-to-exe-file/
+
+------Create GUI using tkinter------
+
+---------------------Step 1:-----------------------
+Install the library pyinstaller.
+Type below command in the command prompt.
+
+>pip install pyinstaller
+
+---------------------Step 2:---------------------
+Go into the directory where your ‘.py’ file is located.
+
+---------------------Step 3---------------------
+Press shift button and simultaneously right click at the same location.
+You will get below box.
+
+---------------------Step 4---------------------
+Click on ‘Open PowerShell window here’.
+
+---------------------Step 5---------------------
+pyinstaller --onefile -w filename.py
+
+---------------------Step 6---------------------
+After typing the command ‘Hit the Enter’.
+It will take some time to finish the process depending on the size of the file and how big is your project.
+After the processing has been finished, the window will look as below:
+
+---------------------Step 7---------------------
+See the directory it should look like this:
+
+‘build’ folder and ‘1.spec’ is of no use. 
+You can delete these if you want,
+it will not affect your ‘.exe’ file.
+
+---------------------Step 8---------------------
+Open ‘dist’ folder above. Here you will get your ‘.exe’ file.
+
+Right-click on the file and check the properties.
+
+
+
