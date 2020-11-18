@@ -1,0 +1,32 @@
+Questions:
+1. What if 4 variables out of 9 variables is linear relationship, Can we use Linear regression?
+
+
+
+
+
+
+
+
+
+
+
+
+
+Answers:
+#######################################################################################################
+1. What if 4 variables out of 9 variables is linear relationship, Can we use Linear regression?
+    -> First how to find linear relationship?
+          Simple Scatter plot to X1,y   X2,y   X3,y    Xn,y , 
+          We can see some linear relationship by those scatter plot,
+    -> In Real time data,
+          We never use one model to fit,
+          We use linear, polynomial, random forest and so on
+          So we see accuracy of each model and -select- which has good accuracy
+    -> Flagging
+          So the question is Can we use Linear Regression or not
+          Simply Out of 9 variables, if we have 5 or more varibles
+          has linear relationship(high majority)
+          Then we can use linear regression.
+
+
