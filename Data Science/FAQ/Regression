@@ -1,6 +1,6 @@
 Questions:
 1. What if 4 variables out of 9 variables is linear relationship, Can we use Linear regression?
-
+2. Exogeneity?
 
 
 
@@ -29,5 +29,27 @@ Answers:
           has linear relationship(high majority)
           Then we can use linear regression.
     >>>> CODE :  https://github.com/Sharukkhan777/Python/blob/master/Data%20Science/Regression/Linear%20Regression/Linear%20Relationship%20with%20Dep%20var%20Y.ipynb
+#######################################################################################################
+2. Exogeneity?
 
+    -> Simple Terms
 
+        * First, We can find this in the assumptions of Regression.
+        * In the Regression Equation,
+            y = mx + b + ε (error term, epsilon)
+        * If we Scatter plot x and ε(error).
+            If we find any correlation, whether it is positive or negative,
+            The Linear Regression will be biased one.
+
+    ->With Example 
+        * Suppose y is Ice-Cream Sales
+                  x is Temperature
+                  ε is error term
+        * Generally we know y and x is positively correlated.
+        * But if we Scatter plot Ice-Cream Sales and ε(error).
+            If we find any correlation, whether it is positive or negative,
+            The Linear Regression will be biased one.
+
+            #>>>>>>CODE = 
+        
+#######################################################################################################
