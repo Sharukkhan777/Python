@@ -60,3 +60,6 @@ Answers:
     ````But the above methods are not reliable...````
     -> Answer:
         Cross - Validation.
+        An advantage is that the cross-validation method can be applied 
+        to any machine learning model and the scikit-learn package provides 
+        extensive functionality for that.
