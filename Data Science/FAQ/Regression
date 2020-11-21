@@ -1,6 +1,7 @@
 Questions:
 1. What if 4 variables out of 9 variables is linear relationship, Can we use Linear regression?
 2. Exogeneity?
+3. Best Way to do Feature Selection?
 
 
 
@@ -53,3 +54,9 @@ Answers:
             #>>>>>>CODE = 
         
 #######################################################################################################
+3. Best Way to do Feature Selection?
+    -> Only keep predictors in the model if they have small p-values.
+    -> Check if the R-squared value goes up when you add new predictors to the model.
+    ````But the above methods are not reliable...````
+    -> Answer:
+        Cross - Validation.
