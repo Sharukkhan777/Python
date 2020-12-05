@@ -3,7 +3,7 @@ Questions:
 2. Exogeneity?
 
 ------Feature Selection------
-3. Best Way to do Feature Selection?
+3. Best Feature Selection method?
 4. Feature Selection, how to do, in what ways?
 5. How to Choose the method of Feature Selection?
 
@@ -56,15 +56,11 @@ Answers:
             #>>>>>>CODE = 
         
 #######################################################################################################
-3. Best Way to do Feature Selection?
-    -> Only keep predictors in the model if they have small p-values.
-    -> Check if the R-squared value goes up when you add new predictors to the model.
-    ````But the above methods are not reliable...````
-    -> Answer:
-        Cross - Validation.
-        An advantage is that the cross-validation method can be applied 
-        to any machine learning model and the scikit-learn package provides 
-        extensive functionality for that.
+3. Best Feature Selection method?
+    There is no best machine learning algorithm 
+    same like that 
+    there is no best Feature Selection method
+    All depends on the data.
         
         
  #######################################################################################################
