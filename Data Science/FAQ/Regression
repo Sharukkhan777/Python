@@ -6,7 +6,7 @@ Questions:
 3. Best Feature Selection method?
 4. Feature Selection, how to do, in what ways?
 5. How to Choose the method of Feature Selection?
-
+6. Website for Feature Selection?
 
 
 
@@ -91,3 +91,10 @@ Answers:
         * RFE method...(powerful technique for feature selection)
           #>>>>>>>>>>Source : https://machinelearningmastery.com/rfe-feature-selection-in-python/
 #######################################################################################################
+6. Website for Feature Selection?
+    > Feature Selection for Machine Learning
+        https://machinelearningmastery.com/feature-selection-machine-learning-python/
+    > How to Choose a Feature Selection Method For Machine Learning
+        https://machinelearningmastery.com/feature-selection-with-real-and-categorical-data/
+    > Recursive Feature Elimination (RFE) for Feature Selection in Python
+        https://machinelearningmastery.com/rfe-feature-selection-in-python/
