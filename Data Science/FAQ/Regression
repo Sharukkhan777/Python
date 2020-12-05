@@ -1,9 +1,11 @@
 Questions:
 1. What if 4 variables out of 9 variables is linear relationship, Can we use Linear regression?
 2. Exogeneity?
+
+------Feature Selection------
 3. Best Way to do Feature Selection?
-
-
+4. Feature Selection, how to do, in what ways?
+5. How to Choose the method of Feature Selection?
 
 
 
@@ -63,3 +65,33 @@ Answers:
         An advantage is that the cross-validation method can be applied 
         to any machine learning model and the scikit-learn package provides 
         extensive functionality for that.
+        
+        
+ #######################################################################################################
+ 4. Feature Selection, how to do, in what ways?
+ #>>>>>>>>>>Source : https://machinelearningmastery.com/feature-selection-machine-learning-python/
+    1. Univariate Selection
+        * Statistical tests can be used to select those features that have
+          the strongest relationship with the output variable.
+        * Univariate naming simply implies, at a time one by one indep var compared to one dep var.
+        * ANOVA, correlation co-eff,...
+    2. Recursive Feature Elimination(RFE)
+        * Tells which -combination- works good.
+        * For both Categorical and Numerical.
+    3. Principal Component Analysis(Unsupervised) and some other technique
+    4. Feature Importance
+        * Giving score for each variable
+#######################################################################################################
+5. Choose the method of Feature Selection?
+    #>>>>>>>>>>Source : https://machinelearningmastery.com/feature-selection-with-real-and-categorical-data/
+    # >>>>> image address : https://3qeqpr26caki16dnhd19sv6by6v-wpengine.netdna-ssl.com/wp-content/uploads/2019/11/How-to-Choose-Feature-Selection-Methods-For-Machine-Learning.png
+    So when you see the image above you might wonder 
+    
+    ===> For Mixed Independent Variables contains both Cate and Nume vars!!!!
+        2 ways
+        * Separate Cate and do feature selection, 
+          Separate Nume and do feature selection,
+          Combine both
+        * RFE method...(powerful technique for feature selection)
+          #>>>>>>>>>>Source : https://machinelearningmastery.com/rfe-feature-selection-in-python/
+#######################################################################################################
