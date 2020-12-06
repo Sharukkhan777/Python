@@ -12,6 +12,11 @@ Questions:
 8. Difference between Ridge and Lasso?
 9. How to control bias and variance tradeoff?
 10. Why use Regularization?
+11.When should you use method i) plain Linear Regression (i.e., without any regularization), 
+                             ii) Ridge, 
+                             iii) Lasso, 
+                             iv) or Elastic Net?
+
 
 
 
