@@ -7,7 +7,11 @@ Questions:
 4. Feature Selection, how to do, in what ways?
 5. How to Choose the method of Feature Selection?
 6. Website for Feature Selection?
+7. Lasso Regression as Feature Selection? Yes, we can perform.
 
+8. Difference between Ridge and Lasso?
+9. How to control bias and variance tradeoff?
+10. Why use Regularization?
 
 
 
@@ -98,3 +102,34 @@ Answers:
         https://machinelearningmastery.com/feature-selection-with-real-and-categorical-data/
     > Recursive Feature Elimination (RFE) for Feature Selection in Python
         https://machinelearningmastery.com/rfe-feature-selection-in-python/
+
+#######################################################################################################
+8. Difference between Ridge and Lasso?
+    Ridge regression shrinks the coefficients for those predictors which contribute very less in 
+    the model but have huge weights, very close to zero. But it never makes them exactly zero. 
+    Thus, the final model will still contain all those predictors, though with less weights. 
+    This doesn’t help in interpreting the model very well. This is where Lasso regression differs 
+    with Ridge regression. In Lasso, the L1 penalty does reduce some coefficients exactly to zero 
+    when we use a sufficiently large tuning parameter λ. So, in addition to regularizing, lasso 
+    also performs feature selection.
+#######################################################################################################
+9. How to control bias and variance tradeoff?
+    * Using Regularization we can control, see Question , Why use Regularization.
+#######################################################################################################
+10. Why use Regularization?
+    Regularization helps to reduce the variance of the model, without a substantial increase in the
+    bias. If there is variance in the model that means that the model won’t fit well for dataset
+    different that training data. The tuning parameter λ controls this bias and variance tradeoff.
+    When the value of λ is increased up to a certain limit, it reduces the variance without losing
+    any important properties in the data. But after a certain limit, the model will start losing some
+    important properties which will increase the bias in the data. Thus, the selection of good value
+    of λ is the key. The value of λ is selected using cross-validation methods. A set of λ is 
+    selected and cross-validation error is calculated for each value of λ and that value of λ is 
+    selected for which the cross-validation error is minimum.
+11.When should you use plain Linear Regression (i.e., without any regularization), Ridge, Lasso, or Elastic Net?
+    According to the Hands-on Machine Learning book, it is almost always preferable to have at least a little bit of
+    regularization, so generally you should avoid plain Linear Regression. Ridge is a good default, but if you suspect 
+    that only a few features are actually useful, you should prefer Lasso or Elastic Net since they tend to reduce the 
+    useless features’ weights down to zero as we have discussed. In general, Elastic Net is preferred over Lasso since
+    Lasso may behave erratically when the number of features is greater than the number of training instances or when 
+    several features are strongly correlated.
