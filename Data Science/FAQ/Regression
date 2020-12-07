@@ -17,7 +17,8 @@ Questions:
                              iii) Lasso, 
                              iv) or Elastic Net?
 
-
+12. Univariate regression?
+13. Multivariate regression?
 
 
 
@@ -131,6 +132,7 @@ Answers:
     of λ is the key. The value of λ is selected using cross-validation methods. A set of λ is 
     selected and cross-validation error is calculated for each value of λ and that value of λ is 
     selected for which the cross-validation error is minimum.
+#######################################################################################################
 11.When should you use plain Linear Regression (i.e., without any regularization), Ridge, Lasso, or Elastic Net?
     According to the Hands-on Machine Learning book, it is almost always preferable to have at least a little bit of
     regularization, so generally you should avoid plain Linear Regression. Ridge is a good default, but if you suspect 
@@ -138,3 +140,10 @@ Answers:
     useless features’ weights down to zero as we have discussed. In general, Elastic Net is preferred over Lasso since
     Lasso may behave erratically when the number of features is greater than the number of training instances or when 
     several features are strongly correlated.
+#######################################################################################################
+12. Univariate regression?
+    One dependent variable.
+#######################################################################################################
+13. Multivariate regression?
+    Two or More dependent variable.
+#######################################################################################################
