@@ -19,7 +19,7 @@ Questions:
 
 12. Univariate regression? ---- One dependent-----
 13. Multivariate regression?-----Two or more dependent-----
-
+14. Performance measure, can we take RMSE or MAE?
 
 
 
@@ -147,3 +147,8 @@ Answers:
 13. Multivariate regression?
     Two or More dependent variable.
 #######################################################################################################
+14. Performance measure, can we take RMSE or MAE?
+    Even though the RMSE is generally the preferred performance measure for regression
+  tasks, in some contexts you may prefer to use another function. For example, suppose
+  that there are many outlier. In that case, you may consider using the Mean
+  Absolute Error 
