@@ -1,3 +1,4 @@
+==========CHAPTER 1===========
 1) What is Feature Engineering ?
 2) Overfitting reasons and solutions?
 3) Underfitting reasons and solutions?
@@ -13,7 +14,9 @@
 10) What is holdout validation?
 11) Semi-supervised Learning?
 12) Out-of-core 
-
+==================================================
+==========CHAPTER 2===========
+13) What to do if the data is huge?
 
 
 
@@ -133,4 +136,19 @@
     cannot fit in one machine’s main memory (this is called out-of-core learning). The
     algorithm loads part of the data, runs a training step on that data, and repeats the
     process until it has run on all of the data.
-    
+####################################################################################
+13) What to do if the data is huge?
+    If the data was huge, you could either split your -batch learning-
+    work across multiple servers (using the -MapReduce technique-), or
+    you could use an -online learning technique- instead.
+####################################################################################
+
+####################################################################################
+
+####################################################################################
+
+####################################################################################
+
+####################################################################################
+
+####################################################################################
