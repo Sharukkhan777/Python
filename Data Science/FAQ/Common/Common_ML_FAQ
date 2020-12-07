@@ -1,9 +1,16 @@
 1) What is Feature Engineering ?
+2) Overfitting reasons and solutions?
+3) Underfitting reasons and solutions?
 
-
-
-
-
+4) Facts of Data and model.
+5) What is Generalization?
+    Generalization error
+6) Fitness function and Cost function?
+7) Good ML means Good Data and Good Model.
+8) Always take 80 20 train and test is good?
+9) Accuracy is more when modelling and less in Production, what is the solution?
+10) What is holdout validation?
+11) Semi-supervised Learning?
 
 
 
@@ -16,4 +23,102 @@
   • Feature extraction: combining existing features to produce a more useful one (as
   we saw earlier, dimensionality reduction algorithms can help).
   • Creating new features by gathering new data.
+####################################################################################
+2) Overfitting reasons and solutions?
+  REASONS:
+    When the model is too complex relative to the amount and noisiness of the training data.
+    In simple words,
+    * Training data might contains high noisy data(data which is not meaningful to train the model),
+    * So when calculte with high noisy, it uses high degree polynomials,
+    * Obviously, we end up with overfitting of the training data.
+  SOLUTIONS:
+    • To simplify the model by selecting one with fewer parameters
+      (e.g., a linear model rather than a high-degree polynomial
+      model), by reducing the number of attributes in the training
+      data or by constraining the model
+    • Constraining a model to make it simpler and reduce the risk of overfitting is 
+      called regularization. 
+    • To gather more training data
+    • To reduce the noise in the training data (e.g., fix data errors
+      and remove outliers)
+ #####################################################################################
+3) Underfitting reasons and solutions?
+  REASONS:
+    Overfitting = Accuracy more on training data, less on test data.
+    Underfitting = Accuracy less on training data itself.
+  SOLUTIONS:
+    • Selecting a more powerful model, with more parameters
+    • Feeding better features to the learning algorithm (feature engineering)
+    • Reducing the constraints on the model (e.g., reducing the regularization hyper‐
+    parameter)
+ ####################################################################################
+ 4) Facts of Data and model.
+       In a famous paper published in 2001, Microsoft researchers Michele Banko and Eric
+      Brill showed that very different Machine Learning algorithms, including fairly simple
+      ones, performed almost identically well on a complex problem of natural language once 
+      they were given enough data 
+ ####################################################################################
+ 5) Generalization?
+      • Generalization or Predictions: usually refers to a ML model’s ability to perform well on new unseen data 
+      rather than just the data that it was trained on.
+      • There are two main approaches to generalization: 
+        • instance-based learning (K-NN) by comparing them to the learned instances using a similarity measure.
+        • model-based learning (linear regression), tune parameters to fit the model.
+   Generalization error:
+        • Split your data into two sets: the training set and the test set. As
+          these names imply, you train your model using the training set, and you test it using
+          the test set. The error rate on new cases is called the generalization error
+ ####################################################################################
+ 6) Fitness function and Cost function?
+    • Fitness or utility = How good your model is.
+    • Cost = How bad your model is.
+ ####################################################################################
+8) Always take 80 20 train and test is good?
+    It is common to use 80% of the data for training and hold out 20%
+    for testing. However, this depends on the size of the dataset: if it
+    contains 10 million instances, then holding out 1% means your test
+    set will contain 100,000 instances.
+####################################################################################
+9) Accuracy is more when modelling and less in Production, what is the solution?
+      • So evaluating a model is simple enough: just use a test set. Now suppose you are hesi‐
+      tating between two models (say a linear model and a polynomial model): how can
+      you decide? One option is to train both and compare how well they generalize using
+      the test set.
+      • Now suppose that the linear model generalizes better, but you want to apply some
+      regularization to avoid overfitting. The question is: how do you choose the value of
+      the regularization hyperparameter? One option is to train 100 different models using
+      100 different values for this hyperparameter. Suppose you find the best hyperparame‐
+      ter value that produces a model with the lowest generalization error, say just 5% error.
+      • So you launch this model into production, but unfortunately it does not perform as
+      well as expected and produces 15% errors. What just happened?
+      The problem is that you measured the generalization error multiple times on the test
+      set, and you adapted the model and hyperparameters to produce the best model for
+      that particular set. This means that the model is unlikely to perform as well on new
+      data.
+      • In Simple words, Overfitting of the model using the Hyperparameter to the train set.
+      • A common solution to this problem is called holdout validation.
+####################################################################################
+10. What is holdout validation?
+      • You simply hold out part of the training set to evaluate several candidate models and select the best one.
+    The new heldout set is called the validation set (or sometimes the development set, or dev set).
+      • More specifically, you train multiple models with various hyperparameters
+    on the reduced training set (i.e., the full training set minus the validation set), and
+    you select the model that performs best on the validation set. After this holdout vali‐
+    dation process, you train the best model on the full training set (including the valida‐
+    tion set), and this gives you the final model. Lastly, you evaluate this final model on
+    the test set to get an estimate of the generalization error.
+      • Cross-validation, using many small validation sets. Each model is evaluated
+    once per validation set, after it is trained on the rest of the data. By averaging out all
+    the evaluations of a model, we get a much more accurate measure of its performance.
+####################################################################################
+11) Semi-supervised Learning?
+    • Some algorithms can deal with partially labeled training data, usually a lot of unla‐
+    beled data and a little bit of labeled data. This is called semisupervised learning.
+    • Some photo-hosting services, such as Google Photos, are good examples of this. Once
+    you upload all your family photos to the service, it automatically recognizes that the
+    same person A shows up in photos 1, 5, and 11, while another person B shows up in
+    photos 2, 5, and 7. This is the unsupervised part of the algorithm (clustering). Now all
+    the system needs is for you to tell it who these people are. 
+    • Just one label per person, and it is able to name everyone in every photo, which is useful for searching photos.
+    • Simply, first Unsupervised(clustering) then supervised(Label).
 ####################################################################################
