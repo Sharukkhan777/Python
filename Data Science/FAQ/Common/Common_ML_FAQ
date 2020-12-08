@@ -17,7 +17,7 @@
 ==================================================
 ==========CHAPTER 2===========
 13) What to do if the data is huge?
-
+14) Histogram for each numerical data column shows tailed, what we have to do?
 
 
 ####################################################################################
@@ -142,7 +142,9 @@
     work across multiple servers (using the -MapReduce technique-), or
     you could use an -online learning technique- instead.
 ####################################################################################
-
+14) Histogram for each numerical data column shows tailed, what we have to do?
+    Tailed data is hard to predict patterns, so we have to do feature scaling to make it 
+    Bell-Shaped Curve(Normal distribution)
 ####################################################################################
 
 ####################################################################################
