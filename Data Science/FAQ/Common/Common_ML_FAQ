@@ -22,7 +22,7 @@
 16) Accuracy will change everytime while you didn't mention random_state, What will you do, 
     And what is the risk of updating dataset?
 17) Why Stratification is important in splotting test set?
-
+18) Stratification in train set?why?
 
 
 
@@ -204,6 +204,16 @@
         pd.cut() function to create an income category attribute with 5 categories (labeled
         from 1 to 5): category 1 ranges from 0 to 1.5 (i.e., less than $15,000), category 2 from
         1.5 to 3, and so on.
+####################################################################################
+18) Stratification in train set?why?
+    If your data size is too large, then in the same way we took it test set,
+    we can take it for train set also and work.
+####################################################################################
+
+####################################################################################
+
+####################################################################################
+
 ####################################################################################
 
 ####################################################################################
