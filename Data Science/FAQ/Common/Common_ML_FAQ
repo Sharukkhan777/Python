@@ -150,7 +150,8 @@
 ####################################################################################
 14) Histogram for each numerical data column shows tailed, what we have to do?
     Tailed data is hard to predict patterns, so we have to do feature scaling to make it 
-    Bell-Shaped Curve(Normal distribution)
+    Bell-Shaped Curve(Normal distribution),
+    Use transformations like log(),log10(), and so on..
 ####################################################################################
 15) Data snooping bias, Good Pattern only in test data?
     When we have good pattern only in test data, model set hyperparameters as well 
