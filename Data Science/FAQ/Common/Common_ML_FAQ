@@ -19,6 +19,11 @@
 13) What to do if the data is huge?
 14) Histogram for each numerical data column shows tailed, what we have to do?
 15) Data snooping bias, Good Pattern only in test data?
+16) Accuracy will change everytime while you didn't mention random_state, What will you do, 
+    And what is the risk of updating dataset?
+
+
+
 
 
 ####################################################################################
@@ -152,7 +157,23 @@
     as parameters when only good fit to the test set and performs bad at production
     is called Data snooping.
 ####################################################################################
-
+16) Accuracy will change everytime while you didn't mention random_state, What will you do, 
+    And what is the risk of updating dataset?
+    -----random_state----
+    We have to mention random_state = <some int number>,
+    Then only we get same accuracy each time we refresh(Run),
+    Okay, Lets say random_state = 42,
+    It works well until the data will get updated,
+    
+    -----Data Updated---- 
+    if the data get updated, the random taking values will change,
+    so here we can use index as identifier,
+    but in that case, we make sure that data should append at last,
+    ----if not append at last----
+    we have to made a strong identifier, 
+    In housing example, we make an identifier using 
+    Latitude and Longitude,(it wont change for few million years)
+    so that's the best idea.
 ####################################################################################
 
 ####################################################################################
