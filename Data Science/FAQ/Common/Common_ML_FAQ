@@ -18,6 +18,7 @@
 ==========CHAPTER 2===========
 13) What to do if the data is huge?
 14) Histogram for each numerical data column shows tailed, what we have to do?
+15) Data snooping bias, Good Pattern only in test data?
 
 
 ####################################################################################
@@ -146,7 +147,10 @@
     Tailed data is hard to predict patterns, so we have to do feature scaling to make it 
     Bell-Shaped Curve(Normal distribution)
 ####################################################################################
-
+15) Data snooping bias, Good Pattern only in test data?
+    When we have good pattern only in test data, model set hyperparameters as well 
+    as parameters when only good fit to the test set and performs bad at production
+    is called Data snooping.
 ####################################################################################
 
 ####################################################################################
