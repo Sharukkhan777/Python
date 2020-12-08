@@ -21,7 +21,7 @@
 15) Data snooping bias, Good Pattern only in test data?
 16) Accuracy will change everytime while you didn't mention random_state, What will you do, 
     And what is the risk of updating dataset?
-
+17) Why Stratification is important in splotting test set?
 
 
 
@@ -175,7 +175,35 @@
     Latitude and Longitude,(it wont change for few million years)
     so that's the best idea.
 ####################################################################################
-
+17) Why Stratification is important in splotting test set?
+    So far we have considered purely random sampling methods. This is generally fine if
+    your dataset is large enough (especially relative to the number of attributes), but if it
+    is not, you run the risk of introducing a significant sampling bias. When a survey
+    company decides to call 1,000 people to ask them a few questions, they don’t just pick
+    1,000 people randomly in a phone book. They try to ensure that these 1,000 people
+    are representative of the whole population. For example, the US population is com‐
+    posed of 51.3% female and 48.7% male, so a well-conducted survey in the US would
+    try to maintain this ratio in the sample: 513 female and 487 male. This is called strati‐
+    fied sampling: the population is divided into homogeneous subgroups called strata,
+    and the right number of instances is sampled from each stratum to guarantee that the
+    test set is representative of the overall population. If they used purely random sam‐
+    pling, there would be about 12% chance of sampling a skewed test set with either less
+    than 49% female or more than 54% female. Either way, the survey results would be
+    significantly biased.
+    Example:
+        Suppose you chatted with experts who told you that the median income is a very
+        important attribute to predict median housing prices. You may want to ensure that
+        the test set is representative of the various categories of incomes in the whole dataset.
+        Since the median income is a continuous numerical attribute, you first need to create
+        an income category attribute. Let’s look at the median income histogram more closely
+        (back in Figure 2-8): most median income values are clustered around 1.5 to 6 (i.e.,
+        $15,000–$60,000), but some median incomes go far beyond 6. It is important to have
+        a sufficient number of instances in your dataset for each stratum, or else the estimate
+        of the stratum’s importance may be biased. This means that you should not have too
+        many strata, and each stratum should be large enough. The following code uses the
+        pd.cut() function to create an income category attribute with 5 categories (labeled
+        from 1 to 5): category 1 ranges from 0 to 1.5 (i.e., less than $15,000), category 2 from
+        1.5 to 3, and so on.
 ####################################################################################
 
 ####################################################################################
