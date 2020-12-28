@@ -24,6 +24,7 @@
 17) Why Stratification is important in splotting test set?
 18) Stratification in train set?why?
 19) When to use Standardisation and Normalization?
+20) Use of Pipelines? i) Simple Automation, ii) Hyperparameter tuning.
 
 
 ####################################################################################
