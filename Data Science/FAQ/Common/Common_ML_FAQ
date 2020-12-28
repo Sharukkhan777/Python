@@ -23,7 +23,7 @@
     And what is the risk of updating dataset?
 17) Why Stratification is important in splotting test set?
 18) Stratification in train set?why?
-
+19) When to use Standardisation and Normalization?
 
 
 ####################################################################################
@@ -210,7 +210,16 @@
     If your data size is too large, then in the same way we took it test set,
     we can take it for train set also and work.
 ####################################################################################
-
+19) When to use Standardisation and Normalization?
+    Range:
+        Stan : No range
+        Norm : 0 - 1.
+    Use:
+        * In some cases like neural networks, the values should be in a range 0-1,
+          so we have to use Normalization.
+        * Standardisation is much less affected by outliers,
+          so the original values is between 0-15, by mistake 100 is there, 
+          Norm changes the values 0-0.15, Stan won't affect by outliers.
 ####################################################################################
 
 ####################################################################################
