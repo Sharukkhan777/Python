@@ -28,7 +28,7 @@
 21) In Regression, which metric is used to tell over and underfit? ---MSE--- or ---RMSE---
 22) Why Cross Validation?
 23) Ensemble Leraning?  Building a model on top of many other models is called Ensemble Learning, RandomForest.
-
+24) Overfitting on Whole Training(Low Error Rate) than Train+Validation set, What to do?
 
 
 
@@ -241,7 +241,27 @@
         
         See holdout validation for validation set definition.
 ####################################################################################
+24) Overfitting on Whole Training(Low Error Rate) than Train+Validation set, What to do?
 
+    >>>>>>>>>> CODE
+    >>> forest_rmse  # for whole training data
+    18603.515021376355
+    >>> display_scores(forest_rmse_scores)  # for train + validation data
+    Scores: [49519.80364233 47461.9115823 50029.02762854 52325.28068953
+     49308.39426421 53446.37892622 48634.8036574 47585.73832311
+     53490.10699751 50021.5852922 ]
+    Mean: 50182.303100336096
+    Standard deviation: 2097.0810550985693
+    >>>>>>>>>>>>>>>>
+    
+    In the above code, you can see the Error 18603.515 for whole trainig data is less 
+    than train+validation sets using CV, 
+    It means, it overfit on whole train set.
+    
+    Solution:
+    1) Regularize
+    2) Get lot more trainig data
+    3) Use different models.
 ####################################################################################
 
 ####################################################################################
