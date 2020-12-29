@@ -238,6 +238,8 @@
         So randomly splits the ---training set--- into 10 distinct subsets called folds, then it
         trains and evaluates the model 10 times, picking a different fold for
         evaluation every time and training on the other 9 folds.
+        
+        See holdout validation for validation set definition.
 ####################################################################################
 
 ####################################################################################
