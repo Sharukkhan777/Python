@@ -26,6 +26,15 @@
 19) When to use Standardisation and Normalization?
 20) Use of Pipelines? i) Simple Automation, ii) Hyperparameter tuning.
 21) In Regression, which metric is used to tell over and underfit? ---MSE--- or ---RMSE---
+22) Why Cross Validation?
+
+
+
+
+
+
+
+
 
 ####################################################################################
 1) What is Feature Engineering ?
@@ -222,7 +231,13 @@
           so the original values is between 0-15, by mistake 100 is there, 
           Norm changes the values 0-0.15, Stan won't affect by outliers.
 ####################################################################################
-
+22) Why Cross Validation?
+    * For some methods like Model Selection, Model Evaluation, its always better to use CV, 
+    * Why, 
+        Result of randomly selected train set might bias,
+        So randomly splits the ---training set--- into 10 distinct subsets called folds, then it
+        trains and evaluates the model 10 times, picking a different fold for
+        evaluation every time and training on the other 9 folds.
 ####################################################################################
 
 ####################################################################################
