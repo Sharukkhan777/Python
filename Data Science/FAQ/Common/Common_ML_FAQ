@@ -27,7 +27,7 @@
 20) Use of Pipelines? i) Simple Automation, ii) Hyperparameter tuning.
 21) In Regression, which metric is used to tell over and underfit? ---MSE--- or ---RMSE---
 22) Why Cross Validation?
-
+23) Ensemble Leraning?  Building a model on top of many other models is called Ensemble Learning, RandomForest.
 
 
 
