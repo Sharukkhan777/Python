@@ -29,7 +29,7 @@
 22) Why Cross Validation?
 23) Ensemble Leraning?  Building a model on top of many other models is called Ensemble Learning, RandomForest.
 24) Overfitting on Whole Training(Low Error Rate) than Train+Validation set, What to do?
-
+25) Save models?
 
 
 
@@ -263,5 +263,13 @@
     2) Get lot more trainig data
     3) Use different models.
 ####################################################################################
-
+25) Save models?
+    You should save every model you experiment with, so you can come back easily to any model you want
+    
+    >>>>>>>>>> CODE
+    from sklearn.externals import joblib
+    joblib.dump(my_model, "my_model.pkl")
+    # and later...
+    my_model_loaded = joblib.load("my_model.pkl")
+    >>>>>>>>>>
 ####################################################################################
