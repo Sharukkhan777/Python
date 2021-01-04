@@ -30,7 +30,14 @@
 23) Ensemble Learning?  Building a model on top of many other models is called Ensemble Learning, RandomForest.
 24) Overfitting on Whole Training(Low Error Rate) than Train+Validation set, What to do?
 25) Save models?
-
+26)
+27)
+28)
+29)
+30)
+=================================================
+==========CHAPTER 3===========
+31) Why Shuffling is good and needed for training dataset?
 
 
 
@@ -273,3 +280,10 @@
     my_model_loaded = joblib.load("my_model.pkl")
     >>>>>>>>>>
 ####################################################################################
+
+31) Why Shuffling is good and needed for training dataset?
+    * If not shuffling, some machine learning algorithms take those orders(data order) too.
+    * Which can be show poor accuracy.
+    Solution:
+    * Make sure the training data are -shuffled-.
+    
