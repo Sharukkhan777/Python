@@ -192,6 +192,8 @@
     In housing example, we make an identifier using 
     Latitude and Longitude,(it wont change for few million years)
     so that's the best idea.
+    -----what if latitude and longitude change----
+    Use identifiers
 ####################################################################################
 17) Why Stratification is important in splotting test set?
     So far we have considered purely random sampling methods. This is generally fine if
