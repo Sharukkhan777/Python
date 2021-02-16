@@ -23,6 +23,7 @@
     And what is the risk of updating dataset?
 16-) Sampling bias? if nrow is not large enough than ncolumn and takes sample from it, means sampling bias.
 17) Why Stratification is important in splotting test set?
+17-) Stratification in my words?
 18) Stratification in train set?why?
 19) When to use Standardisation and Normalization?
 20) Use of Pipelines? i) Simple Automation, ii) Hyperparameter tuning.
@@ -226,6 +227,16 @@
         from 1 to 5): category 1 ranges from 0 to 1.5 (i.e., less than $15,000), category 2 from
         1.5 to 3, and so on.
 ####################################################################################
+17-) Stratification in my words ?
+    Example: 
+    if we have 999 male category and 1 female category in Gender column,
+    And build a model on it,
+    It might give good result when modelling,
+    but when deploy, it definitely give bad result,
+    when more female and less male category in the production data set.
+
+####################################################################################
+
 18) Stratification in train set?why?
     If your data size is too large, then in the same way we took it test set,
     we can take it for train set also and work.
