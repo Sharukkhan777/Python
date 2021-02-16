@@ -21,6 +21,7 @@
 15) Data snooping bias, Good Pattern only in test data?
 16) Accuracy will change everytime while you didn't mention random_state, What will you do, 
     And what is the risk of updating dataset?
+16-) Sampling bias? if nrow is not large enough than ncolumn and takes sample from it, means sampling bias.
 17) Why Stratification is important in splotting test set?
 18) Stratification in train set?why?
 19) When to use Standardisation and Normalization?
