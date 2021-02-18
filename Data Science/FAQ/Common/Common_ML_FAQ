@@ -42,7 +42,9 @@
 31) Why Shuffling is good and needed for training dataset?
 
 
-
+==================================================
+==========CHAPTER 4===========
+4-1) 2 ways to train a model a Linear Regression? 
 
 
 ####################################################################################
@@ -301,3 +303,7 @@
     Solution:
     * Make sure the training data are -shuffled-.
     
+####################################################################################
+4-1) 2 ways to train a model a Linear Regression? 
+    1) Closed form - Equation.
+    2) Gradient Descent.
