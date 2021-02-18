@@ -45,7 +45,7 @@
 ==================================================
 ==========CHAPTER 4===========
 4-1) 2 ways to train a model a Linear Regression? 
-
+4-2) RMSE vs MSE? (Have to see)
 
 ####################################################################################
 1) What is Feature Engineering ?
@@ -304,6 +304,14 @@
     * Make sure the training data are -shuffled-.
     
 ####################################################################################
-4-1) 2 ways to train a model a Linear Regression? 
+4-1) 2 ways to train a model a Linear Regression(find model parameter)? 
     1) Closed form - Equation.
     2) Gradient Descent.
+####################################################################################
+4-2) RMSE vs MSE? (Have to see)
+    The most common performance measure
+    of a regression model is the Root Mean Square Error (RMSE) (Equation 2-1). There‐
+    fore, to train a Linear Regression model, you need to find the value of θ that minimi‐
+    zes the RMSE. In practice, it is simpler to minimize the Mean Square Error (MSE)
+    than the RMSE, and it leads to the same result (because the value that minimizes a
+    function also minimizes its square root).
