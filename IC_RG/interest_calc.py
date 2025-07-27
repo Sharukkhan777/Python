@@ -39,7 +39,7 @@ def list_of_dates(start_date,end_date):
         date_list.append(current.strftime("%d-%m-%Y"))  # Format as string (optional)
         current += timedelta(days=1)
     
-    # Print the list
+    # # print the list
     return date_list
 #------------------------------------------------
 
@@ -60,7 +60,7 @@ def format_month_year(date_str):
 
 # Example usage
 formatted = format_month_year("01-01-2025")
-print(formatted)  # Output: Jan-2025
+# print(formatted)  # Output: Jan-2025
 
 #-------------------------------------------------
 # to know start of the month
@@ -116,7 +116,7 @@ def compound_interest(principal, rate, time, frequency):
 
 # Example: ₹10,000 at 10% interest, compounded monthly for 2 years
 total = compound_interest(1000, 10, 1, 12)
-print(f"Total amount after 2 years: ₹{total}")
+# print(f"Total amount after 2 years: ₹{total}")
 
 #-------------------------------------------------
 def simple_interest(principal, annual_rate_percent, round_to, days_in_year=360):
@@ -137,7 +137,7 @@ def simple_interest(principal, annual_rate_percent, round_to, days_in_year=360):
     return round(daily_interest, round_to)
 
 # Example usage
-# print(simple_interest(1000, 10))  # Output: 0.277778
+# # print(simple_interest(1000, 10))  # Output: 0.277778
 
 
 # CREATING FUNCTION
@@ -180,8 +180,8 @@ def interest_cal_function(val_principal, start_date, end_date, lst_payment_date,
         lst_interest_accured.append(val_interest_accured)
         
         # payment done
-        print(lst_payment_date)
-        print(lst_payment_amount)
+        # print(lst_payment_date)
+        # print(lst_payment_amount)
         for payment_date, payment_amt in zip(lst_payment_date,lst_payment_amount):
             if date == payment_date:
                 lst_payment_done.append(payment_amt)
@@ -249,7 +249,7 @@ def interest_cal_function(val_principal, start_date, end_date, lst_payment_date,
                 df_final["Interest_Accured_SI_Cumulation"][i+1] = df_final["Interest_Accured_SI"][i+1]
                 df_final["Total_amount"][i+1] = val
                 
-                print(df_final.iloc[i+1,:])
+                # print(df_final.iloc[i+1,:])
             elif df_final["Payment_Done"][i-1] != 0:
                 continue
                 
@@ -396,12 +396,12 @@ def val_for_bulk_interest(df_input, df_interest_rate_month,val_decimal_point = 2
         # Get the last day of the month
         last_day = calendar.monthrange(date.year, date.month)[1]
         end_of_month = date.replace(day=last_day).date()
-        print("End of month:", end_of_month)
+        # print("End of month:", end_of_month)
         
     def find_end_month_timestamp(timestamp):
         # Get the end of the month as a date
         end_of_month = (timestamp + pd.offsets.MonthEnd(0))
-        print("End of month:", end_of_month)
+        # print("End of month:", end_of_month)
         return end_of_month
     
     def is_date_in_range(start_date, end_date, middle_date):
