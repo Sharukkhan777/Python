@@ -87,9 +87,9 @@ with tab1:
  
         # Convert all dates to string format "dd-mm-yyyy"
         str_start_date = start_date.strftime("%d-%m-%Y")
-        print(str_start_date)
+        # # print(str_start_date)
         str_end_date = end_date.strftime("%d-%m-%Y")
-        print(str_end_date)
+        # # print(str_end_date)
         str_payment_dates = [d.strftime("%d-%m-%Y") for d in lst_payment_date]
 
         try:
@@ -103,8 +103,8 @@ with tab1:
                 num_decimal_point
                 
             )
-            # print(df_final)
-            # print(df_final_monthly)
+            # # print(df_final)
+            # # print(df_final_monthly)
             
             # Store in session state
             st.session_state.df_final = df_final
