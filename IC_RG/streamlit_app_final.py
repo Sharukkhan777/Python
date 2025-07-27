@@ -175,16 +175,19 @@ with tab4:
         st.warning("Please upload a file or check the box to use the default file.")
 
 
-    if st.button("Calculate Interest For Bulk"):
-        try:
-            df_interest_rate_month = pd.read_csv(interest_file)
-        except:
-            pass
-        df_interest_rate_month['Month'] = pd.to_datetime(df_interest_rate_month['End of'], format='%b-%y').dt.strftime('%m-%Y')
-        df_interest_rate_month['InterestRate'] = df_interest_rate_month["Interest Rate"]*100
+    #if st.button("Calculate Interest For Bulk"):
+      #  try:
+        #    df_interest_rate_month = pd.read_csv(interest_file)
+   #     except:
+     #       pass
+       # df_interest_rate_month['Month'] = pd.to_datetime(df_interest_rate_month['End of'], format='%b-%y').dt.strftime('%m-%Y')
+      #  df_interest_rate_month['InterestRate'] = df_interest_rate_month["Interest Rate"]*100
  
     
     if uploaded_file:
+        df_interest_rate_month['Month'] = pd.to_datetime(df_interest_rate_month['End of'], format='%b-%y').dt.strftime('%m-%Y')
+        df_interest_rate_month['InterestRate'] = df_interest_rate_month["Interest Rate"]*100
+ 
         df_input = pd.read_csv(uploaded_file)
         st.dataframe(df_input.head())
         st.info("Showing first 5 observations as sample data uploaded.")
