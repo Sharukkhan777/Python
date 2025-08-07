@@ -460,10 +460,11 @@ def val_for_bulk_interest(df_input, df_interest_rate_month,val_decimal_point = 6
                 
                 df_final = interest_cal_function(val_principal, start_date, end_date, lst_payment_date, lst_payment_amount, df_interest_rate_month,val_decimal_point)[1]
                 
-                val_final_interest = round(df_final.iloc[-1,-3],3)
+                val_final_interest = round(df_final.iloc[-1,-3],6)
                 lst_interest_vals.append(val_final_interest)
             except:
                 lst_interest_vals.append(0)
         df_input["Default_Interest_Till_"+str(end_date)] = lst_interest_vals
     return df_input
+
 
