@@ -375,7 +375,7 @@ def interest_cal_function(val_principal, start_date, end_date, lst_payment_date,
 
 
 #-----------------------------------------------------
-def val_for_bulk_interest(df_input, df_interest_rate_month,val_decimal_point = 2):
+def val_for_bulk_interest(df_input, df_interest_rate_month,val_decimal_point = 6):
     # df_input = pd.read_csv(r"E:\Sharukkhan\AllProjects\Reshma_interest_tracker\InterestTrackerApp\interest_input_file_JUN_2025.csv")
     # convert to data types
     # Convert the entire column
@@ -466,3 +466,4 @@ def val_for_bulk_interest(df_input, df_interest_rate_month,val_decimal_point = 2
                 lst_interest_vals.append(0)
         df_input["Default_Interest_Till_"+str(end_date)] = lst_interest_vals
     return df_input
+
