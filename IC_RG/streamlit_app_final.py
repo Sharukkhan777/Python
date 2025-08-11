@@ -200,6 +200,13 @@ with tab4:
                 output = BytesIO()
                 df_input.to_csv(output, index=False)
                 output.seek(0)
+                import winsound
+                
+                # Simple beep
+                winsound.Beep(1000, 500)  # frequency in Hz, duration in ms
+                
+                # Or default system sound
+                winsound.MessageBeep()
 
                 # Auto download
                 st.download_button(
@@ -229,4 +236,5 @@ with tab5:
     </h6>
     
     """, unsafe_allow_html=True)
+
 
